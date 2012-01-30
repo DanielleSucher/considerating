@@ -9,6 +9,7 @@ Spork.prefork do
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
   require 'rspec/autorun'
+  require 'capybara/rspec'
 
   # Requires supporting files with custom matchers and macros, etc,
   # in ./support/ and its subdirectories.
@@ -32,9 +33,19 @@ Spork.prefork do
     config.use_transactional_fixtures = true
     
     config.infer_base_class_for_anonymous_controllers = false
+    
+    config.include 'integration_spec_helper', :type => :request
   end
-end
 
+	# Omniauth mock setup
+	Capybara.default_host = 'http://example.org'
+
+	OmniAuth.config.test_mode = true
+	OmniAuth.config.add_mock(:twitter, {
+	  :uid => '12345',
+	  :name => 'zapnap'
+	})
+end
 Spork.each_run do
   # This code will be run each time you run your specs.
 

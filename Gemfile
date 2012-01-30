@@ -26,6 +26,9 @@ end
 
 gem 'jquery-rails', '2.0.0'
 
+gem 'omniauth'
+gem 'omniauth-twitter', :git => 'https://github.com/arunagw/omniauth-twitter.git'
+
 # Gems used for testing
 group :test do
 	gem 'turn', '0.8.2', :require => false

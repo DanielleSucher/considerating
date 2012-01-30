@@ -2,6 +2,16 @@ Considerating::Application.routes.draw do
   get "pages/home"
 
   get "pages/about"
+  
+  match '/auth/:provider/callback', :to => 'sessions#create'
+  match '/signout', :to => 'sessions#destroy', :as => :signout
+  
+  match '/home', :to => 'pages#home'
+  match '/about', :to => 'pages#about'
+  
+  root :to => 'pages#home'
+  
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

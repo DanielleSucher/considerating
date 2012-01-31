@@ -10,8 +10,10 @@ class Consideration < ActiveRecord::Base
 	validates_exclusion_of :content, :in => %w( http href ), :message => "No links please!"
 
 	def self.random
-       	if (c = count) != 0
-         	find(:first, :offset => rand(c))
+       	if self.count != 0
+#         	find(:first, :offset => rand(c))
+         	count = self.count()
+		    self.find(:first, :offset => rand(count))
        	end
 	end
 end

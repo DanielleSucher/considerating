@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120130230447) do
+ActiveRecord::Schema.define(:version => 20120131180609) do
 
   create_table "considerations", :force => true do |t|
     t.string   "content"
@@ -30,5 +30,16 @@ ActiveRecord::Schema.define(:version => 20120130230447) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "votes", :force => true do |t|
+    t.integer  "voter_id"
+    t.integer  "voted_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "votes", ["voted_id"], :name => "index_votes_on_voted_id"
+  add_index "votes", ["voter_id", "voted_id"], :name => "index_votes_on_voter_id_and_voted_id", :unique => true
+  add_index "votes", ["voter_id"], :name => "index_votes_on_voter_id"
 
 end

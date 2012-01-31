@@ -1,3 +1,5 @@
 <div>
-	<%= @random_consideration.content %>
+	<% if Consideration.count != 0 %>
+		<%= @random_consideration.content %>
+	<% end %>
 </div>

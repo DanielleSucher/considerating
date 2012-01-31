@@ -5,7 +5,7 @@ describe PagesController do
 
   describe "Home page" do
   
-	it "should be have the content 'Considerating'" do
+	it "should  have the content 'Considerating'" do
     	visit '/home'
     	page.should have_content('Considerating')
     end

@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
-	attr_accessor :name
+	attr_accessible :name
 	has_many :considerations
+	
+	validates :name, :presence => true
 
 	def self.create_with_omniauth(auth)
 		create! do |user|

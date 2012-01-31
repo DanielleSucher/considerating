@@ -1,3 +1,9 @@
 <% provide(:title, '') %>
-<h1>Pages#home</h1>
+<h1>Considerating</h1>
+
+<% if session[:user_id] != nil %>
+	<%= render 'shared/signed_in_home' %>
+<% else %>
+	<%= render 'shared/not_signed_in_home' %>
+<% end %>
 

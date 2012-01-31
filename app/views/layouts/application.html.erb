@@ -16,14 +16,16 @@
 					<%= link_to "Sign in with Twitter!", "/auth/twitter" %>
 				<% end %>
 			</div>
-			<div id="flash">
-				<% if flash[:notice] %>
+			<% if flash[:notice] %>
+				<div id="flash">
       				<p class="notice"><%= flash[:notice] %></p>
-    			<% end %>
-    			<% if flash[:error] %>
+      			</div>
+    		<% end %>
+    		<% if flash[:error] %>
+    			<div id="flash">
       				<p class="error"><%= flash[:error] %></p>
-    			<% end %>
-    		</div>
+      			</div>
+    		<% end %>
 			<%= yield %>
 		</div>
 	</body>

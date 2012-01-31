@@ -1,7 +1,8 @@
 Considerating::Application.routes.draw do
-  get "pages/home"
-
-  get "pages/about"
+  
+  resources :users
+  resources :sessions,   :only => [:new, :create, :destroy]
+  resources :considerations, :only => :create
   
   match '/auth/:provider/callback', :to => 'sessions#create'
   match '/signout', :to => 'sessions#destroy', :as => :signout

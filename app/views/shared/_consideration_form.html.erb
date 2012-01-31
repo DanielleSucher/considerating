@@ -1,6 +1,6 @@
 <%= form_for @consideration do |f| %>
   <div class="field">
-    <%= f.text_area :content %>
+    <%= f.text_area :content, :maxlength => 500 %>
   </div>
   <div class="actions">
     <%= f.submit "Submit" %>

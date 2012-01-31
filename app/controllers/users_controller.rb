@@ -4,5 +4,9 @@ class UsersController < ApplicationController
   	def show
     	@user = User.find(params[:id])
   	end
+  	
+#   	def feed
+#   		Consideration.where("user_id = ?", id)
+#   	end
 
 end

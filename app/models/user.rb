@@ -1,9 +1,11 @@
 class User < ActiveRecord::Base
-	attr_accessible :name
+	attr_accessible :name, :votes_attributes, :considerations_attributes
 	has_many :considerations
-	has_many :votes,	:foreign_key => "voter_id",
-						:dependent => :destroy
+	has_many :votes,	:foreign_key => "voter_id"
 	has_many :voteds, :through => :votes, :source => :voted
+	
+# 	accepts_nested_attributes_for :votes
+# 	accepts_nested_attributes_for :considerations, :reject_if => lambda { |a| a[:rating].blank? }
 	
 	validates :name, :presence => true
 
@@ -19,7 +21,10 @@ class User < ActiveRecord::Base
 		votes.find_by_voted_id(voted)
 	end
 	
-	def vote!(voted)
-		votes.create!(:voted_id => voted.id)
+	def vote!(voted, rating)
+		votes.create!(:voted_id => voted.id, :rating => rating)
+		current_vote = votes.find_by_voted_id(voted)
+		considered = Consideration.find_by_id(voted.id)
+		considered.add_vote(current_vote)
 	end
 end

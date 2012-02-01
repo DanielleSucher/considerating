@@ -1,5 +1,5 @@
 class Consideration < ActiveRecord::Base
-	attr_accessible :content
+	attr_accessible :content, :votes_total, :votes_count, :votes_attributes
 	
 	belongs_to :user
 	has_many :reverse_votes,	:foreign_key => "voted_id",
@@ -19,5 +19,15 @@ class Consideration < ActiveRecord::Base
          	count = self.count()
 		    self.find(:first, :offset => rand(count))
        	end
+	end
+	
+	def add_vote(vote)
+		Consideration.increment_counter(:votes_count, id)
+		self.votes_total += vote.rating
+		self.save
+	end
+	
+	def results
+		self.votes_total/self.votes_count
 	end
 end

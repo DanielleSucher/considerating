@@ -5,6 +5,15 @@ Considerating::Application.routes.draw do
   resources :considerations, :only => :create
   resources :votes, :only => [:create, :destroy]
   
+  resources :users do
+  	resources :considerations
+  	resources :votes
+  end
+  
+  resources :considerations do
+  	resources :votes
+  end
+  
   match '/auth/:provider/callback', :to => 'sessions#create'
   match '/signout', :to => 'sessions#destroy', :as => :signout
   

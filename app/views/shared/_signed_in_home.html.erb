@@ -2,8 +2,10 @@
 		<tr>
 			<td class="vote_on">
 				<div>
-#					<%= @random_consideration.content %>
-					Placeholder
+					<% if Consideration.count != 0 %>
+						<%= @consideration.content %><br />
+						<%= render 'users/vote_form' %>
+					<% end %>
 				</div>
 			</td>
 		</tr>

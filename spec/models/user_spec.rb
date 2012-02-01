@@ -44,12 +44,12 @@ describe User do
 		end
 		
 		it "should vote on a consideration" do
-			@user.vote!(@voted)
+			@user.vote!(@voted, 3.5)
 			@user.should be_voteds(@voted)
 		end
 		
 		it "should include the voted consideration in the voteds array" do
-			@user.vote!(@voted)
+			@user.vote!(@voted, 3.5)
 			@user.voteds.should include(@voted)
 		end
 	end

@@ -1,5 +1,5 @@
-<%= form_for current_user.votes.
-                          build(:voted_id => @consideration.id) do |f| %>
-  <div><%= f.hidden_field :voted_id %></div>
-  <div class="actions"><%= f.submit "Vote" %></div>
+<%= form_for current_user.votes.build(:voted_id => @consideration.id) do |f| %>
+	<div><%= f.hidden_field :voted_id %></div>
+	<div><%= f.number_field :rating, :in => 1...11 %></div>
+	<div class="actions"><%= f.submit "Vote" %></div>
 <% end %>

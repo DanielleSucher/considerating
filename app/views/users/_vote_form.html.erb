@@ -1,9 +1,7 @@
-<% unless current_user?(@user) %>
-  <div id="vote_form">
-  <% if current_user.voteds?(@user) %>
-    <%= render 'results' %>
-  <% else %>
-    <%= render 'vote' %>
-  <% end %>
-  </div>
-<% end %>
+	<div id="vote_form">
+  		<% if current_user.voteds?(@consideration) != nil %>
+    		<%= render 'shared/results' %>
+  		<% else %>
+    		<%= render 'users/vote' %>
+  		<% end %>
+  	</div>

@@ -2,20 +2,20 @@ require 'spec_helper'
 
 describe Consideration do
   
-	before(:each) do
+	before {
   		@user = Factory(:user)
 		@attr = { :content => "value for content" }
-	end
+	}
 	
-	it "should create a new instance given valid attributes" do
-		@user.considerations.create!(@attr)
+	describe "create" do
+		it "should create a new instance given valid attributes" do
+			@user.considerations.create!(@attr)
+		end
 	end
 	
 	describe "user associations" do
 	
-		before(:each) do
-			@consideration = @user.considerations.create(@attr)
-		end
+		before { @consideration = @user.considerations.create(@attr) }
 		
 		it "should have a user attribute" do
 			@consideration.should respond_to(:user)
@@ -58,8 +58,27 @@ describe Consideration do
 		end
 		
 		it "should include the voter in the voters array" do
-			@user.vote!(@voted)
+			@user.vote!(@voted, 6.24)
 			@voted.voters.should include(@user)
+		end
+	end
+	
+	describe "vote totals and counts" do
+		before { @consideration = Factory(:consideration) }
+	
+		it "should have a votes_total method" do
+			@consideration.should respond_to(:votes_total)
+		end
+		
+		it "should have a votes_count method" do
+			@consideration.should respond_to(:votes_count)
+		end
+		
+		it "should have the right votes_count" do
+			lambda do
+				@user.vote!(@consideration, 3.7)
+#			@consideration.votes_count.should == @consideration.voters.count
+			end.should change(@consideration.voters, :count).by(1)
 		end
 	end
 end

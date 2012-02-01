@@ -45,4 +45,21 @@ describe Consideration do
 			@user.considerations.build(:content => "a" * 501).should_not be_valid
 		end
 	end
+	
+	describe "votes" do
+		before { @voted = Factory(:consideration) }
+		
+		it "should have a reverse_votes method" do
+			@voted.should respond_to(:reverse_votes)
+		end
+		
+		it "should have a voters method" do
+			@voted.should respond_to(:voters)
+		end
+		
+		it "should include the voter in the voters array" do
+			@user.vote!(@voted)
+			@voted.voters.should include(@user)
+		end
+	end
 end

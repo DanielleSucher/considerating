@@ -2,6 +2,10 @@ class Consideration < ActiveRecord::Base
 	attr_accessible :content
 	
 	belongs_to :user
+	has_many :reverse_votes,	:foreign_key => "voted_id",
+								:class_name => "Vote",
+								:dependent => :destroy
+	has_many :voters, :through => :reverse_votes, :source => :voter
 	
 	default_scope :order => 'considerations.created_at DESC'
 	

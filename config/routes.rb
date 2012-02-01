@@ -3,6 +3,7 @@ Considerating::Application.routes.draw do
   resources :users
   resources :sessions,   :only => [:new, :create, :destroy]
   resources :considerations, :only => :create
+  resources :votes, :only => [:create, :destroy]
   
   match '/auth/:provider/callback', :to => 'sessions#create'
   match '/signout', :to => 'sessions#destroy', :as => :signout

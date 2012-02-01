@@ -30,4 +30,27 @@ describe User do
 			no_name_user.should_not be_valid
 		end
 	end
+	
+	describe "votes" do
+	
+		before { @voted = Factory(:consideration) }
+		
+		it "should have a votes method" do
+			@user.should respond_to(:votes)
+		end
+		
+		it "should have a voteds method" do
+			@user.should respond_to(:voteds) 
+		end
+		
+		it "should vote on a consideration" do
+			@user.vote!(@voted)
+			@user.should be_voteds(@voted)
+		end
+		
+		it "should include the voted consideration in the voteds array" do
+			@user.vote!(@voted)
+			@user.voteds.should include(@voted)
+		end
+	end
 end

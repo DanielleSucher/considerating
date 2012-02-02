@@ -1,7 +1,7 @@
 <tr>
 	<td class="consideration">
-    	<span class="content"><%= consideration.content %></span><br />
-    	<span class="voting">
+    	<span id="content"><%= link_to wrap(consideration.content), consideration_path(consideration) %></span><br />
+    	<span id="voting">
       		<% if session[:user_id] != nil %>
       			<% @consideration = consideration %>
 				<%= render 'users/vote_form' %>

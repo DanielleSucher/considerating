@@ -1,6 +1,6 @@
 <div id="consideration_content">
 	<% if Consideration.count != 0 %>
-		<%= @consideration.content %>
+		<%= link_to wrap(@consideration.content), consideration_path(@consideration) %>
 	<% end %>
 </div>
 <div id="sign_in_link">

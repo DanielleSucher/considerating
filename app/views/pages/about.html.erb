@@ -1,2 +1,5 @@
 <% provide(:title, 'About ') %>
-<p>Find me in app/views/pages/about.html.erb</p>
+<div id="about">
+	<p><%= link_to "Considerating", root_path %> is the brainchild of <a href="http://thingswemake.com">Josh Sucher</a>. He's also the only admin, so you should <%= mail_to "josh@blockfactory.com", "email him" %> if you have any issues.</p>
+	<p>Developed and designed by <a href="http://daniellesucher.com">Danielle Sucher</a>. You're welcome to <a href="https://github.com/DanielleSucher/considerating">grab the source code from GitHub</a>, or <%= mail_to "dsucher@gmail.com", "email her" %> with any technical concerns/suggestions/comments. Patches are more welcome than complaints without simultaneously proffered solutions, natch. </p>
+</div>

@@ -10,7 +10,7 @@
 		<div class="container">
 				<%= render 'layouts/nav' %>
 			<div id="banner">
-				<h1><%= yield(:title) %>Considerating</h1>
+				<h1><%= link_to yield(:title)+"Considerating", root_path %></h1>
 			</div>
 			<% if flash[:notice] %>
 				<div id="flash">

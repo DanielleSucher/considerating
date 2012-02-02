@@ -1,0 +1,40 @@
+/* flash notices */
+#flash {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	width: 100%;
+	border: 2px solid #ccc;
+	margin-top: 60px;
+	padding: 20px;
+	font-weight: bold;
+}
+
+#user_nav {
+	direction: rtl;
+	text-indent: 50px;
+}
+
+#consideration_content {
+	text-align: center;
+}
+
+#banner {
+	text-align: center;
+}
+
+#footer {
+	text-align: center;
+}
+
+.container {
+    padding-bottom: 60px;
+}
+
+.bottombar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-bottom: 10px;
+}

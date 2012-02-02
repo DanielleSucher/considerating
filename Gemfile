@@ -45,6 +45,7 @@ group :test do
 	gem 'spork', '0.9.0.rc8'
 	gem 'factory_girl_rails'
 	gem 'steak'
+	gem 'sunspot_test'
 end
 
 group :production do

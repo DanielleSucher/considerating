@@ -1,6 +1,6 @@
 <div>
 	<% if Consideration.count != 0 %>
-		<%= @consideration.content %><br />
+		<%= link_to wrap(@consideration.content), consideration_path(@consideration) %><br />
 		<%= render 'users/vote_form' %>
 	<% end %>
 </div><br/>

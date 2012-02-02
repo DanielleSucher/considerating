@@ -1,5 +1,5 @@
 <div id="consideration_content">
-	<%= @consideration.content %>
+	<%= wrap(@consideration.content) %>
 </div>
 <% if session[:user_id] != nil %>
 	<%= render 'users/vote_form' %>

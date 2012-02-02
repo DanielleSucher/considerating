@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'spork'
+require 'sunspot_test/rspec'
 
 Spork.prefork do
   # Loading more in this block will cause your tests to run faster. However,

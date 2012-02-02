@@ -1,4 +1,4 @@
-require 'acceptance/acceptance_helper'
+# require 'acceptance/acceptance_helper'
 # require 'spec/spec_helper'
 
 # 	feature 'testing omniauth', %q{

@@ -1,8 +1,8 @@
 <tr>
   <td class="consideration">
-    <span class="content"><%= consideration.content %></span>
+    <span class="content"><%= consideration.content %></span><br />
     <span class="voting">
-      something about voting, probably with an if/else for signed_in/not
+      <%= render 'users/vote_form' %>
     </span>
   </td>
 </tr>

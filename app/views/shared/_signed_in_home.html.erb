@@ -1,17 +1,8 @@
-	<table class="front" summary="For signed-in users">
-		<tr>
-			<td class="vote_on">
-				<div>
-					<% if Consideration.count != 0 %>
-						<%= @consideration.content %><br />
-						<%= render 'users/vote_form' %>
-					<% end %>
-				</div>
-			</td>
-		</tr>
-		<tr>
-			<td class="submit">
-				<%= render 'shared/consideration_form' %>
-			</td>
-		</tr>
-	</table>
+<div>
+	<% if Consideration.count != 0 %>
+		<%= @consideration.content %><br />
+		<%= render 'users/vote_form' %>
+	<% end %>
+</div><br/>
+<br/>
+<%= render 'shared/signed_in_page_bottom' %>

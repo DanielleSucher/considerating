@@ -81,4 +81,13 @@ describe Consideration do
 			end.should change(@consideration.voters, :count).by(1)
 		end
 	end
+	
+	describe "search" do
+		before { @consideration = Factory(:consideration) }
+	
+		it "should have a search method" do
+			@consideration.should respond_to(:search)
+		end
+		
+	end
 end

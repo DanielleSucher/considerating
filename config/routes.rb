@@ -2,12 +2,18 @@ Considerating::Application.routes.draw do
   
   resources :users
   resources :sessions,   :only => [:new, :create, :destroy]
-  resources :considerations, :only => :create
+  resources :considerations, :only => [:create, :show, :index]
   resources :votes, :only => [:create, :destroy]
   
   resources :users do
   	resources :considerations
   	resources :votes
+  end
+  
+  resources :users do
+  	member do
+  		get :voteds
+  	end
   end
   
   resources :considerations do

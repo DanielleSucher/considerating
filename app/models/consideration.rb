@@ -13,6 +13,16 @@ class Consideration < ActiveRecord::Base
 	validates :content, :presence => true, :length => { :maximum => 500 }
 	validates_exclusion_of :content, :in => %w( http href ), :message => "No links please!"
 
+	searchable do
+		text :content
+	end
+	
+	def search
+    	@search = Consideration.search(:include => [:content]) do
+      		keywords(params[:q])
+    	end
+  end
+
 	def self.random
        	if self.count != 0
 #         	find(:first, :offset => rand(c))

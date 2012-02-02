@@ -1,0 +1,15 @@
+<div id="consideration_content">
+	<%= @consideration.content %>
+</div>
+<% if session[:user_id] != nil %>
+	<%= render 'users/vote_form' %>
+<br/>
+<%= render 'shared/signed_in_page_bottom' %>
+<% else %>
+	<div id="sign_in_link">
+	 	(There have been <%= @consideration.votes_count %> votes on this consideration so far.)<br /> 
+	 	<%= link_to "Sign in with Twitter to vote and see results!", "/auth/twitter" %>
+	</div><br />
+	<br />
+<%= render 'shared/not_signed_in_page_bottom' %>
+<% end %>

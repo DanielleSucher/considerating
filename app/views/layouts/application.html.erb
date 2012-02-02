@@ -8,20 +8,9 @@
 	</head>
 	<body>
 		<div class="container">
-			<div class="row show-grid">
-				<div class="span10 offset6" id="user_nav">
-					<% if current_user %>
-						<%= "Welcome #{current_user.name}!" %>
-						<%= link_to "Sign out", signout_path %>
-					<% else %>
-						<%= link_to "Sign in with Twitter to vote and see results", "/auth/twitter" %>
-					<% end %>
-				</div>
-			</div>
-			<div class="row show-grid">
-				<div class="span-one-third offset-one-third" id="pagetitle">
-					<h1><%= yield(:title) %>Considerating</h1>
-				</div>
+				<%= render 'layouts/nav' %>
+			<div id="banner">
+				<h1><%= yield(:title) %>Considerating</h1>
 			</div>
 			<% if flash[:notice] %>
 				<div id="flash">
@@ -34,6 +23,7 @@
       			</div>
     		<% end %>
 			<%= yield %>
+				<%= render 'layouts/footer' %>
 		</div>
 	</body>
 </html>

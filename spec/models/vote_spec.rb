@@ -33,6 +33,10 @@ describe Vote do
   		it "should have the right voted" do
   			@vote.voted.should == @voted
   		end
+  		
+  		it "should have the right voter_id" do
+  			@vote.voter_id.should == @voter.id
+  		end
   	end
   	
   	describe "validations" do

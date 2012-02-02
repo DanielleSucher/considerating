@@ -29,6 +29,9 @@ gem 'jquery-rails', '2.0.0'
 gem 'omniauth'
 gem 'omniauth-twitter', :git => 'https://github.com/arunagw/omniauth-twitter.git'
 
+gem 'sunspot_rails'
+gem 'sunspot_solr'
+
 # Gems used for testing
 group :test do
 	gem 'turn', '0.8.2', :require => false
@@ -45,7 +48,7 @@ group :test do
 end
 
 group :production do
-	gem 'pg', '0.12.2'
+	gem 'sqlite3', '1.3.5'
 end
 
 # To use ActiveModel has_secure_password

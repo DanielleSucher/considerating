@@ -1,0 +1,11 @@
+<h1><%= "#{@user_to_show.name}" %></h1>
+<%= render 'users/destroy_user' %>
+<br />
+<br />
+<% unless @user_considerations.empty? %>
+	<table id="user_considerations">
+  		<%= render @user_considerations %>
+  	</table>
+<% end %>
+<br />
+<%= render 'shared/signed_in_page_bottom' %>

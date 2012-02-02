@@ -3,6 +3,7 @@
     	<span class="content"><%= consideration.content %></span><br />
     	<span class="voting">
       		<% if session[:user_id] != nil %>
+      			<% @consideration = consideration %>
 				<%= render 'users/vote_form' %>
 			<% else %>
 				<div id="sign_in_link">

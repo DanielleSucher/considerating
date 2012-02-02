@@ -2,7 +2,7 @@ Considerating::Application.routes.draw do
   
   resources :users
   resources :sessions,   :only => [:new, :create, :destroy]
-  resources :considerations, :only => [:create, :show, :index]
+  resources :considerations, :only => [:create, :show, :index, :destroy]
   resources :votes, :only => [:create, :destroy]
   
   resources :users do

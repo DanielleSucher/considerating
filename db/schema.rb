@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120201055707) do
+ActiveRecord::Schema.define(:version => 20120202155013) do
 
   create_table "considerations", :force => true do |t|
     t.string   "content"
@@ -29,8 +29,9 @@ ActiveRecord::Schema.define(:version => 20120201055707) do
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "admin",      :default => false
   end
 
   create_table "votes", :force => true do |t|

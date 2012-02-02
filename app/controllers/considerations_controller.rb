@@ -1,6 +1,7 @@
 class ConsiderationsController < ApplicationController
-	before_filter :authenticate, :only => :create
-	
+	before_filter :authenticate, :only => [:create, :destroy]
+	before_filter :admin_user,   :only => :destroy
+	  	
   	def create
   		@consideration = current_user.considerations.build(params[:consideration])
   		if @consideration.save
@@ -10,6 +11,12 @@ class ConsiderationsController < ApplicationController
 			flash[:failure] = "Sorry, no consideration was created."
 			redirect_to root_path
 		end
+  	end
+  	
+  	def destroy
+    	Consideration.find(params[:id]).destroy
+    	flash[:success] = "Consideration destroyed."
+    	redirect_to root_path
   	end
   	
   	def show

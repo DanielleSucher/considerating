@@ -1,7 +1,7 @@
 Factory.define :user do |user|
   user.name			"Example User"
   user.uid			"12345"
-  user.provider 	:twitter
+  user.provider 	"twitter"
 end
 
 Factory.sequence :name do |n|

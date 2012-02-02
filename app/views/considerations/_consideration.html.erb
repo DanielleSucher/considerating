@@ -1,8 +1,14 @@
 <tr>
-  <td class="consideration">
-    <span class="content"><%= consideration.content %></span><br />
-    <span class="voting">
-      <%= render 'users/vote_form' %>
-    </span>
-  </td>
+	<td class="consideration">
+    	<span class="content"><%= consideration.content %></span><br />
+    	<span class="voting">
+      		<% if session[:user_id] != nil %>
+				<%= render 'users/vote_form' %>
+			<% else %>
+				<div id="sign_in_link">
+	 				(There have been <%= consideration.votes_count %> votes on this consideration so far.)
+				</div>
+			<% end %>
+    	</span>
+  	</td>
 </tr>

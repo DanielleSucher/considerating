@@ -1,5 +1,5 @@
 class ConsiderationsController < ApplicationController
-	before_filter :authenticate, :only => [:create, :destroy]
+	before_filter :authenticate, :only => [:create, :destroy, :all]
 	before_filter :admin_user,   :only => [:destroy, :all]
 	  	
   	def create

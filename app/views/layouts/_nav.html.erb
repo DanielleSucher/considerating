@@ -1,5 +1,4 @@
-<div class="row show-grid">
-	<div class="span10 offset6" id="user_nav">
+<div class="row" id="user_nav">
 		<% if current_user %>
 			<%= link_to "#{current_user.name}", user_path(current_user) %>
 			| <%= link_to "Sign out", signout_path %> 
@@ -7,5 +6,4 @@
 			<%= link_to "Sign in with Twitter", "/auth/twitter" %>
 		<% end %>
 		| <%= link_to "About", about_path %>
-	</div>
 </div>

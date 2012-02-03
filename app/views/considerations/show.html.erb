@@ -3,7 +3,9 @@
 		<%= wrap(@consideration.content) %>
 	</div>
 	<% if session[:user_id] != nil %>
-			<%= render 'users/vote_form' %></div>
+		<div id="show-hero" class="row">
+			<%= render 'users/vote_form' %>
+		</div>
 </div>
 		<%= render 'shared/signed_in_page_bottom' %>
 	<% else %>

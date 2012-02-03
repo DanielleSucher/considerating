@@ -13,3 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function () {
+	$('#next-consideration').submit(function(){
+    	$("#consideration-home-content").load("<%= escape_javascript(render('shared/consideration-home-content')) %>")
+	});
+});

@@ -1,0 +1,11 @@
+<div class="digg_pagination"><%= will_paginate @all_considerations %></div>
+
+<% if current_user.admin? %>
+	<div id="all-considerations">
+		<% @all_considerations.each do |consideration| %>
+  			<%= render consideration %>
+  		<% end %>
+  	</div>
+<% end %>
+
+<div class="digg_pagination"><%= will_paginate @all_considerations %></div>

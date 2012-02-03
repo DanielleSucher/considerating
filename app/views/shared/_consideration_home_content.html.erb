@@ -1,0 +1,12 @@
+<div id="consideration-home-content" class="row show-grid">
+	<% if Consideration.count != 0 %>
+		<div class="span4 offset8" id="change-consideration">
+			<form id="next-consideration">
+				<button type="submit" class="btn btn-small">See a random consideration!</button>
+			</form>
+		</div>
+		<div class="span-one-third offset-one-third">
+			<%= link_to wrap(@consideration.content), consideration_path(@consideration) %>
+		</div>
+	<% end %>
+</div>

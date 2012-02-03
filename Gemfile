@@ -32,6 +32,8 @@ gem 'omniauth-twitter', :git => 'https://github.com/arunagw/omniauth-twitter.git
 gem 'sunspot_rails'
 gem 'sunspot_solr'
 
+gem 'will_paginate', '3.0.3'
+
 # Gems used for testing
 group :test do
 	gem 'turn', '0.8.2', :require => false

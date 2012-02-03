@@ -1,3 +1,5 @@
+<div class="row show-grid">
+	<div class="span-one-third offset-one-third">
 	<div id="vote_form">
   		<% if session[:user_id] != nil && current_user.voteds?(@consideration) != nil %>
     		<%= render 'shared/results' %>
@@ -6,3 +8,5 @@
   		<% end %>
   		<%= render 'considerations/destroy_consideration' %>
   	</div>
+  	</div>
+</div>

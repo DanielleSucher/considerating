@@ -1,13 +1,11 @@
-<div id="consideration_content">
-	<% if Consideration.count != 0 %>
-		<%= link_to wrap(@consideration.content), consideration_path(@consideration) %>
-	<% end %>
-</div>
-<div id="sign_in_link">
-	<% if Consideration.count != 0 %>
-	 	(There have been <%= @consideration.votes_count %> votes on this consideration so far.)<br /> 
-	 	<%= link_to "Sign in with Twitter to vote and see results!", "/auth/twitter" %>
-	<% end %>
+<%= render 'shared/consideration_home_content' %>
+<div class="row show-grid">
+	<div id="number-votes" class="span-one-third offset-one-third">
+		<% if Consideration.count != 0 %>
+	 		(There have been <%= @consideration.votes_count %> votes on this consideration so far.)<br /> 
+	 		<%= link_to "Sign in with Twitter to vote and see results!", "/auth/twitter" %>
+		<% end %>
+	</div>
 </div><br />
 <br />
 <%= render 'shared/not_signed_in_page_bottom' %>

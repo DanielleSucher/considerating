@@ -2,7 +2,7 @@ Considerating::Application.routes.draw do
   
   resources :users
   resources :sessions,   :only => [:new, :create, :destroy]
-  resources :considerations, :only => [:create, :show, :index, :destroy]
+  resources :considerations, :only => [:create, :show, :index, :destroy, :all]
   resources :votes, :only => [:create, :destroy]
   
   resources :users do
@@ -25,6 +25,8 @@ Considerating::Application.routes.draw do
   
   match '/home', :to => 'pages#home'
   match '/about', :to => 'pages#about'
+  
+  match '/all', :to => 'considerations#all'
   
   root :to => 'pages#home'
   

@@ -1,15 +1,19 @@
-<tr>
-	<td class="consideration">
-    	<span id="content"><%= link_to wrap(consideration.content), consideration_path(consideration) %></span><br />
-    	<span id="voting">
-      		<% if session[:user_id] != nil %>
-      			<% @consideration = consideration %>
-				<%= render 'users/vote_form' %>
-			<% else %>
-				<div id="sign_in_link">
-	 				(There have been <%= consideration.votes_count %> votes on this consideration so far.)
-				</div>
-			<% end %>
-    	</span>
-  	</td>
-</tr>
+<div id="each-consideration">
+<div id="consideration-content" class="row show-grid">
+	<div class="span-one-third offset-one-third">
+    	<%= link_to wrap(consideration.content), consideration_path(consideration) %>
+    </div>
+</div>
+<div id="voting">
+    <% if session[:user_id] != nil %>
+    	<% @consideration = consideration %>
+		<%= render 'users/vote_form' %>
+	<% else %>
+		<div id="number-notes" class="row show-grid">
+			<div class="span-one-third offset-one-third" id="sign_in_link">
+	 			(There have been <%= consideration.votes_count %> votes on this consideration so far.)
+			</div>
+		</div>
+	<% end %>
+</div>
+</div>

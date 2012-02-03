@@ -1,8 +1,5 @@
-<div>
-	<% if Consideration.count != 0 %>
-		<%= link_to wrap(@consideration.content), consideration_path(@consideration) %><br />
-		<%= render 'users/vote_form' %>
-	<% end %>
-</div><br/>
+<%= render 'shared/consideration_home_content' %>
+<%= render 'users/vote_form' %>
+<br/>
 <br/>
 <%= render 'shared/signed_in_page_bottom' %>

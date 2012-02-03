@@ -9,7 +9,7 @@
 	<body>
 		<div class="container">
 				<%= render 'layouts/nav' %>
-			<div id="banner">
+			<div class="row" id="banner">
 				<h1><%= link_to yield(:title)+"Considerating", root_path %></h1>
 			</div>
 			<% if flash[:notice] %>
@@ -23,7 +23,7 @@
       			</div>
     		<% end %>
 			<%= yield %>
-				<%= render 'layouts/footer' %>
 		</div>
+		<%= render 'layouts/footer' %>
 	</body>
 </html>

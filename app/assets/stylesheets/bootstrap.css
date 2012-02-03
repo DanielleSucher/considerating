@@ -981,7 +981,7 @@ textarea[readonly] {
   font-weight: normal;
   line-height: 18px;
   color: #bfbfbf;
-  text-align: center;
+  text-align: center; 
   text-shadow: 0 1px 0 #ffffff;
   -webkit-border-radius: 3px 0 0 3px;
   -moz-border-radius: 3px 0 0 3px;

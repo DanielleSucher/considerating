@@ -1,6 +1,4 @@
 <% if current_user.admin? %>
-  <td>
     <%= link_to "delete", @user_to_show, :method => :delete,
                                 :confirm => "You sure?" %>
-  </td>
-  <% end %>
+<% end %>

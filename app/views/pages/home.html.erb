@@ -1,7 +1,16 @@
-<% provide(:title, '') %>
-<% if session[:user_id] != nil %>
-	<%= render 'shared/signed_in_home' %>
-<% else %>
-	<%= render 'shared/not_signed_in_home' %>
-<% end %>
-
+<div id="home-consideration-content" class="hero-unit">
+	<%= render 'shared/home_consideration' %>
+		<% if session[:user_id] != nil %>
+			<%= render 'users/vote_form' if @consideration %>
+</div>
+			<%= render 'shared/signed_in_page_bottom' %>
+		<% else %>
+			<div id="home-hero" class="row">
+				<% if Consideration.count != 0 %>
+	 				(There have been <%= @consideration.votes_count %> votes on this consideration so far.)<br /> 
+	 				<%= link_to "Sign in with Twitter to vote and see results!", "/auth/twitter" %>
+				<% end %>
+			</div>
+</div>
+			<%= render 'shared/not_signed_in_page_bottom' %>
+		<% end %>

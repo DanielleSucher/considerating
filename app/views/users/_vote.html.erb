@@ -2,5 +2,5 @@
              :remote => true do |f| %>
 	<div><%= f.hidden_field :voted_id %></div>
 	<div>Considerate <%= f.range_field :rating, :min => 0, :max => 10, :step=> 0.5 %> Creepy</div>
-	<div class="actions"><%= f.submit "Vote" %></div>
+	<div class="actions"><%= f.submit "Vote", :class => "btn" %></div>
 <% end %>

@@ -1,0 +1,12 @@
+<% if Consideration.count != 0 %>
+	<div id="home-consideration" class="row">
+		<div class="span4 offset8" id="change-consideration">
+			<form id="next-consideration">
+				<button type="submit" class="btn btn-small">See a random consideration!</button>
+			</form>
+		</div>
+	</div>	
+	<div id="consideration-content-big" class="row">
+		<%= link_to wrap(@consideration.content), consideration_path(@consideration) %>
+	</div>
+<% end %>

@@ -13,10 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-//= require twitter/bootstrap
 
-$(document).ready(function () {
-	$('#next-consideration').submit(function(){
-    	$("#consideration-home-content").load("<%= escape_javascript(render('shared/consideration-home-content')) %>")
-	});
-});
+// $('#change-consideration').click(function(){
+//        	alert('yo');
+//         $('#home-consideration-content').html("<%= escape_javascript(render('shared/home_consideration')) %>");
+//         return false; // don't actually follow the link
+//  });
+// 				 

@@ -1,0 +1,10 @@
+	<% if current_user.admin? %>
+		<%= form_for @user_to_show(:banned => true) do |f| %>
+  			<div class="field">
+    			<%= f.hidden_field :banned %>
+  			</div>
+  			<div class="actions">
+    			<%= f.submit "Ban" %>
+  			</div>
+		<% end %>
+	<% end %>

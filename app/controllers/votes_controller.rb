@@ -1,5 +1,6 @@
 class VotesController < ApplicationController
   before_filter :authenticate
+  respond_to :html, :js
 
   def create
     @consideration = Consideration.find(params[:vote][:voted_id])

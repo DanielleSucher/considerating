@@ -1,18 +1,19 @@
-<div id="consideration-show" class="hero-unit">
+<div id="consideration-show" class="hero-unit delete-able">
 	<div id="consideration-content-big" class="row">
-		<%= wrap(@consideration.content) %>
+		<p><%= wrap(@consideration.content) %></p>
+		<span id="submitted"><%= render 'considerations/destroy_consideration' %> <%= link_to "submitted by #{@consideration.user.name} on #{@consideration.user.created_at.strftime("%-m/%-d/%y")}", user_path(@consideration.user) %></span>
 	</div>
 	<% if session[:user_id] != nil %>
-		<div id="show-hero" class="row">
-			<%= render 'users/vote_form' %>
+		<div id="mini-hero" class="row">
+			<%= render 'users/vote_form' %><br />
 		</div>
 </div>
-		<%= render 'shared/signed_in_page_bottom' %>
 	<% else %>
-		<div id="show-hero" class="row">
-	 		(There have been <%= @consideration.votes_count %> votes on this consideration so far.)<br /> 
-	 		<%= link_to "Sign in with Twitter to vote and see results!", "/auth/twitter" %>
+		<div id="mini-hero number-notes" class="row">
+			<% if Consideration.count != 0 %>
+	 			(There have been <%= @consideration.votes_count %> votes on this consideration so far.)<br /> 
+	 			<%= link_to "Sign in with Twitter to vote and see results!", "/auth/twitter" %>
+			<% end %>
 		</div>
 </div>
-		<%= render 'shared/not_signed_in_page_bottom' %>
 	<% end %>

@@ -1,6 +1,7 @@
 class ConsiderationsController < ApplicationController
 	before_filter :authenticate, :only => [:create, :destroy, :all]
 	before_filter :admin_user,   :only => [:destroy, :all]
+	before_filter :no_banned_users,   :only => [:create, :destroy, :all]
 	  	
   	def create
   		@consideration = current_user.considerations.build(params[:consideration])
@@ -16,7 +17,10 @@ class ConsiderationsController < ApplicationController
   	def destroy
     	Consideration.find(params[:id]).destroy
     	flash[:success] = "Consideration destroyed."
-    	redirect_to root_path
+    	respond_to do |format|  
+    		format.html { redirect_to root_path }  
+    		format.js  
+  		end  
   	end
   	
   	def show

@@ -1,9 +1,13 @@
-<h1><%= "#{@user_to_show.name}" %></h1>
-<%= render 'users/destroy_user' %>
-<br />
-<br />
+<div id="profile-top" class="hero-unit">
+	<div class="row" id="profile-name"><%= "#{@user_to_show.name}" %></div>
+	<div class="row" id="profile-ban">
+		<% if @user_to_show.banned? %>
+			This user is already banned. Hooray!
+		<% else %>
+			<%= link_to "Ban", edit_user_path %>
+		<% end %>
+	</div>
+</div>
 <% unless @user_considerations.empty? %>
   	<%= render @user_considerations %>
 <% end %>
-<br />
-<%= render 'shared/signed_in_page_bottom' %>

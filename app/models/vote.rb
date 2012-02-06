@@ -6,5 +6,5 @@ class Vote < ActiveRecord::Base
 	  
 	validates :voter_id, :presence => true
 	validates :voted_id, :presence => true
-#	 validates :rating, :presence => true
+	validates :rating, :presence => true
 end

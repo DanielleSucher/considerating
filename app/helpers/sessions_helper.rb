@@ -29,6 +29,10 @@ module SessionsHelper
     def admin_user
      	redirect_to(root_path) unless current_user.admin?
     end
+    
+    def no_banned_users
+     	redirect_to(root_path) if current_user.banned?
+    end
   	
 #   	def current_consideration=(consideration)
 #     	@current_consideration = consideration

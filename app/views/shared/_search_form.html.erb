@@ -1,4 +1,10 @@
-<%= form_tag considerations_path, :method => :get, :class => "well form-search" do %>
-		<%= text_field_tag :search, params[:search], :class => "input-medium search-query" %>
-		<%= submit_tag "Search", :name => nil, :class => "btn" %>
-<% end %>
+<div class="searchdiv">
+	<%= form_tag considerations_path, :method => :get, :class => "searchform form-inline" do %>
+		<%= text_field_tag :search, params[:search], 
+							:class => "searchfield input-medium input-append",
+							:value => "Type here to search", 
+    						:onFocus => "this.value=''", 
+    						:onBlur => "if (this.value == '') 
+    						{this.value='Type here to search'};" %><%= submit_tag "Search", :name => nil, :class => "searchbutton add-on btn" %>
+	<% end %>
+</div>

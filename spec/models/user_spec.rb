@@ -21,15 +21,6 @@ describe User do
   			@user.considerations.should == [@c2, @c1]
   		end
   	end
-  	
-  	describe "validations" do
-	
-		it "should require a name" do
-			@attr = { :name => "Example User" }
-			no_name_user = User.new(@attr.merge(:name => ""))
-			no_name_user.should_not be_valid
-		end
-	end
 	
 	describe "votes" do
 	

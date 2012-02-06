@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+	attr_accessor :accessible
 	attr_accessible :name, :votes_attributes, :considerations_attributes
 	has_many :considerations
 	has_many :votes,	:foreign_key => "voter_id"
@@ -27,4 +28,10 @@ class User < ActiveRecord::Base
 		considered = Consideration.find_by_id(voted.id)
 		considered.add_vote(current_vote)
 	end
+	
+	private
+	
+		def mass_assignment_authorizer(role = :default)
+    		super + (accessible || [])
+  		end
 end

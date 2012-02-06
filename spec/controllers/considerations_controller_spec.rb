@@ -3,12 +3,61 @@ require 'spec_helper'
 describe ConsiderationsController do
 	render_views
 	
-	describe "access control" do
+	describe "CREATE" do
 	
-		it "should deny access to 'create'" do
-			post :create
-			response.should redirect_to(root_path)
+	    before(:each) do 
+    		@user = Factory(:user)
+    		@consideration = Factory(:consideration, :user => @user)		
+    	end
+    
+    	describe "as a non-signed-in user" do
+      		it "should deny access" do
+				post :create, :consideration => { :voter_id => @user.id, 
+													:content => "Foo bar" }
+				response.should be_redirect
+			end
+			
+		    it "should not create a consideration" do
+        		lambda do
+          			post :create, :consideration => { :content => "Foo bar" }
+        		end.should_not change(Consideration, :count).by(1)
+      		end
 		end
+		
+		describe "as a regular user" do
+		
+		    before do 
+   				request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:twitter]
+   				visit '/auth/twitter'
+   				auth = request.env["omniauth.auth"]
+				@user2 = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
+				session[:user_id] = @user2.id
+			end
+
+      		it "should create a consideration" do
+        		lambda do
+          			post :create, :consideration => { :content => "Foo bar" }
+        		end.should change(Consideration, :count).by(1)
+      		end
+      	end
+      		
+      	describe "as a banned user" do
+		
+		    before do 
+   				request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:twitter]
+   				visit '/auth/twitter'
+   				auth = request.env["omniauth.auth"]
+				@banned = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
+				session[:user_id] = @banned.id
+				@banned.toggle!(:banned) 
+			end
+
+      		it "should create a consideration" do
+        		lambda do
+          			post :create, :consideration => { :content => "Foo bar" }
+        		end.should_not change(Consideration, :count).by(1)
+      		end	
+      	end
 	end
 	
 	describe "DELETE 'destroy'" do

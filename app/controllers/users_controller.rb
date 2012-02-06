@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-	before_filter :authenticate, :only => [:create, :show, :destroy]
-  	before_filter :admin_user,   :only => :destroy
+	before_filter :authenticate, :only => [:create, :show, :destroy, :edit]
+  	before_filter :admin_user,   :only => [:destroy, :edit]
   
   	def show
     	@user_to_show = User.find(params[:id])
@@ -13,4 +13,27 @@ class UsersController < ApplicationController
     	flash[:success] = "User destroyed."
     	redirect_to root_path
   	end
+  	
+  	def destroy_considerations
+  		#destroys all considerations posted by a user
+  		User.find(params[:id]).considerations.destroy_all
+    	redirect_to user_path
+  	end
+  	
+  	def edit
+  		@user_to_edit = User.find(params[:id])
+  		@user_to_edit.accessible = [:banned] if current_user.admin?
+  	end
+  	
+  	def update
+  		@user_to_edit = User.find(params[:id])
+  		@user_to_edit.accessible = [:banned] if current_user.admin?
+		if @user_to_edit.update_attributes(params[:user])
+			flash[:success] = "User banned."
+			redirect_to @user_to_edit
+		else
+			flash[:failure] = "User was not banned."
+			render 'edit'
+		end
+	end
 end

@@ -1,43 +1,98 @@
-/* flash notices */
-#flash {
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-	width: 100%;
-	border: 2px solid #ccc;
-	margin-top: 60px;
-	padding: 20px;
-	font-weight: bold;
-}
-
-#banner {
-	text-align: center;
-}
-
-/* navigation bar */
-#user_nav {
-	direction: rtl;
-	text-indent: 50px;
-}
-
-/* footer */
-.bottombar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    background: #eee;
+body {
+	color: #000000;
+	a:link {color: #000000; text-decoration: none; }
+	a:active {color: #000000; text-decoration: none; }
+	a:visited {color: #000000; text-decoration: none; }
+	a:hover {color: #000000; text-decoration: none; }
+	font-family: "parisplus-clair", serif;
 }
 
 .container {
     padding-bottom: 90px;
 }
 
-/* lists of considerations */
-#each-consideration {
-    padding-bottom: 10px;
-	text-align: center;
+.main-body {
+	clear: both;
+}
+
+#banner {
+	float: left;
+	text-align: left;
+	font-family: "parisine-std-sombre", sans-serif;
+		a:link {color: #000000; text-decoration: none; }
+		a:active {color: #000000; text-decoration: none; }
+		a:visited {color: #000000; text-decoration: none; }
+		a:hover {color: #000000; text-decoration: none; }
+	margin-top: 23px;
+	font-size: 50px;
+  	line-height: 1em;
+}
+
+#user_nav {
+	direction: rtl;
+	float: right;
+	text-indent: 50px;
+	margin-top: 30px;
+}
+
+.user_nav,
+#footer {
+	background-color: transparent; /* #FDF8FF */
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+.searchdiv {
+	text-align: right;
+	margin-top: 15px;
+	float: right;
+}
+
+#search-page,
+#ban-page {
+	margin-top: 160px;
+}
+
+#profile-top,
+#about-top {
+	margin-right: auto;
+	margin-left: auto;
+	font-family: "parisine-std-sombre", sans-serif;
+	a:link {color: #000000; text-decoration: none; }
+	a:active {color: #000000; text-decoration: none; }
+	a:visited {color: #000000; text-decoration: none; }
+	a:hover {color: #000000; text-decoration: none; }
+  	text-align: left;
+	padding-left: 30px;
+	padding-right: 30px;
+	width: 600px;
+}
+
+#profile-name {
+	font-size: 24px;
+  	line-height: 36px;
+  	margin-top: 50px;
+}
+
+#about-title {
+	font-size: 24px;
+  	line-height: 36px;
+  	margin-top: 70px;
+}
+
+#about { 
+	a:link { border-bottom:1px dotted; }
+	a:active { border-bottom:1px dotted; }
+	a:visited { border-bottom:1px dotted; }
+	a:hover { border-bottom:1px dotted; }
+}
+
+.bottombar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
 }
 
 /* new consideration form */
@@ -59,14 +114,61 @@
 }
 
 /* centering the heroes in home and show */
-#home-hero,
-#show-hero,
-#number-notes,
-#consideration-content-big {
+#mini-hero,
+#number-notes {
 	text-align: center;
 }
 
-/* big consideration box */
-#consideration-content-big {
+/* main styling */
+body {
+    background-color: transparent; 
+	background: url(cloudy2.jpg) no-repeat center center fixed;	
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+    
+#home-consideration-content {
+	padding-left: 50px;
+}
 
+#consideration-content-big,
+#each-consideration,
+#about,
+#ban-page,
+#no-search-results {	
+	text-align: left;
+	padding-left: 30px;
+	padding-right: 30px;
+	width: 600px ;
+  	margin-left: auto ;
+  	margin-right: auto ;
+  	
+  	-webkit-border-radius: 6px;
+  	-moz-border-radius: 6px;
+  	border-radius: 6px;
+} 
+
+#consideration-content-big,
+#no-search-results {
+  	margin-top: 50px;
+  	padding-top: 30px;
+}
+
+#about {
+	padding-bottom: 20px;
+}
+
+#ban-button {
+	text-align: center;
+}
+
+#consideration-content-big {
+	padding-bottom: 30px;
+}
+
+#randomizer,
+#submitted {
+	float: right;
 }

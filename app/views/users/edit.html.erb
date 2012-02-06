@@ -1,0 +1,23 @@
+<div id="ban-page" class="hero-unit">
+	<p>Josh, this is a page just for you! If you ban a user, 
+	their account will remain, and they'll still be able
+	to vote, but they won't be able to post any new considerations.
+	I'm having you tag users as banned rather than destroy
+	their accounts, because if you just destroyed a user's account,
+	that user could just go ahead and create a new account by
+	logging in through twitter again. This way, their twitter account
+	is stuck as banned. It makes sense, really. Just go ahead and
+	click the clicky if you're serious about it.</p>
+	<div id="ban-button">
+		<% if current_user.admin? %>
+			<%= form_for @user_to_edit do |f| %>
+  				<div class="field">
+    				<%= f.hidden_field :banned, :value => true %>
+  				</div>
+  				<div class="actions">
+    				<%= f.submit "Ban", :class => "btn" %>
+  				</div>
+			<% end %>
+		<% end %>
+	</div>
+</div>

@@ -1,5 +1,38 @@
 <div id="vote-results">
-	Total of all votes: <%= @consideration.votes_total %><br />
-	Total number of votes: <%= @consideration.votes_count %><br />
-	Considerate/creepy: <%= @consideration.results %>
+	<canvas id="graph<%= @consideration.id %>" width="400" height="120">fallback</canvas><br />
+	<div id="graph-creepy">creepy</div> 
+	<div id="graph-considerate">considerate</div>
+	<div id="total-vote-count"><%= pluralize(@consideration.votes_count, "vote") %> so far</div>
 </div>
+<script type="text/javascript">
+	function draw(points) {
+		var canvas = document.getElementById('graph<%= @consideration.id %>');  
+		var highest = Math.max.apply(Math, points);
+		if (canvas.getContext){  
+  			var ctx = canvas.getContext('2d');  
+  			// drawing code here  		
+  			ctx.strokeStyle = "#000000"; 
+  			ctx.lineJoin = "round";
+  			ctx.lineWidth = 2;
+  			ctx.beginPath();
+  			ctx.moveTo(0,115);
+  			ctx.bezierCurveTo(20, 115, 
+  							  20, 115-(points[0]/highest)*100, 
+  							  40, 115-(points[0]/highest)*100);
+  			for (i=1; i<10; i++) {
+  				ctx.bezierCurveTo(20+(i*40), 115-(points[i-1]/highest)*100, 
+  							  	  20+(i*40), 115-(points[i]/highest)*100, 
+  							  	  40+(i*40), 115-(points[i]/highest)*100);
+			}
+			ctx.shadowColor="black";
+			ctx.shadowBlur=1;
+  			ctx.stroke();
+		} 
+	}
+	var points<%= @consideration.id %> = [<%= @consideration.v1 %>, <%= @consideration.v2 %>, 
+			 	  <%= @consideration.v3 %>, <%= @consideration.v4 %>,
+			 	  <%= @consideration.v5 %>, <%= @consideration.v6 %>,
+			 	  <%= @consideration.v7 %>, <%= @consideration.v8 %>,
+			 	  <%= @consideration.v9 %>, <%= @consideration.v10 %>];
+	draw(points<%= @consideration.id %>);
+</script>

@@ -38,6 +38,8 @@ class Consideration < ActiveRecord::Base
 	
 	def add_vote(vote)
 		Consideration.increment_counter(:votes_count, id)
+		rounded = vote.rating.round
+		Consideration.increment_counter("v#{rounded}".to_sym, id)
 		self.votes_total += vote.rating
 		self.save
 	end
@@ -45,4 +47,13 @@ class Consideration < ActiveRecord::Base
 	def results
 		self.votes_total/self.votes_count
 	end
+	
+	def highest
+  		array = [self.v1, self.v2,
+  				  self.v3, self.v4, 
+  				  self.v5, self.v6, 
+  				  self.v7, self.v8, 
+  				  self.v9, self.v10]
+  		array.max
+  	end
 end

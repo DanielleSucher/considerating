@@ -2,14 +2,7 @@
     <span id="each">
     	<%= link_to wrap(consideration.content), consideration_path(consideration) %><br />
 	</span>
-	<span id="submitted">
-		<% @consideration = consideration %>
-		<%= render 'considerations/destroy_consideration' %> 
-		<%= link_to "submitted by #{consideration.user.name} 
-		on #{consideration.user.created_at.strftime("%-m/%-d/%y")}", 
-		user_path(consideration.user) %>
-	</span>
-	<br /><br />
+	<% @consideration = consideration %>
 	<div id="voting" class="vote-form">
     	<% if session[:user_id] != nil %>
 			<%= render 'users/vote_form' %><br />
@@ -18,6 +11,12 @@
 	 			(This consideration has <%= pluralize(@consideration.votes_count, "vote") %> so far.)
 			</div>
 		<% end %>
+	</div>
+	<div id="submitted">
+		<%= render 'considerations/destroy_consideration' %> 
+		<%= link_to "submitted by #{consideration.user.name} 
+		on #{consideration.user.created_at.strftime("%-m/%-d/%y")}", 
+		user_path(consideration.user) %>
 	</div>
 	<br />
 </div>

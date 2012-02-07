@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120203235017) do
+ActiveRecord::Schema.define(:version => 20120207071433) do
 
   create_table "considerations", :force => true do |t|
     t.string   "content"
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(:version => 20120203235017) do
     t.datetime "updated_at",                                                 :null => false
     t.integer  "votes_count",                               :default => 0,   :null => false
     t.decimal  "votes_total", :precision => 4, :scale => 2, :default => 0.0, :null => false
+    t.integer  "v1",                                        :default => 0,   :null => false
+    t.integer  "v2",                                        :default => 0,   :null => false
+    t.integer  "v3",                                        :default => 0,   :null => false
+    t.integer  "v4",                                        :default => 0,   :null => false
+    t.integer  "v5",                                        :default => 0,   :null => false
+    t.integer  "v6",                                        :default => 0,   :null => false
+    t.integer  "v7",                                        :default => 0,   :null => false
+    t.integer  "v8",                                        :default => 0,   :null => false
+    t.integer  "v9",                                        :default => 0,   :null => false
+    t.integer  "v10",                                       :default => 0,   :null => false
   end
 
   add_index "considerations", ["user_id", "created_at"], :name => "index_considerations_on_uid_and_created_at"

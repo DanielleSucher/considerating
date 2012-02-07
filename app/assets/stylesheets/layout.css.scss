@@ -42,8 +42,7 @@ body {
 	margin-top: 30px;
 }
 
-.user_nav,
-#footer {
+.user_nav {
 	background-color: transparent; /* #FDF8FF */
 	padding-left: 3px;
 	padding-right: 3px;
@@ -56,7 +55,7 @@ body {
 #user_nav,
 #randomizer,
 #submitted,
-#footer {
+.bottombar {
 	font-size: 13px;
 }
 
@@ -143,6 +142,12 @@ body {
     left: 0;
     right: 0;
     text-align: center;
+}
+
+#footer {
+	background-color: #f2f2f2; /* or maybe #FDF8FF */
+	padding-left: 3px;
+	padding-right: 3px;
 }
 
 .new-consideration-field {

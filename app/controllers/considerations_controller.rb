@@ -39,7 +39,7 @@ class ConsiderationsController < ApplicationController
   	
   	def all
   		if Consideration.count != nil
-  			@all_considerations = Consideration.paginate(:page => params[:page], :per_page => 2)
+  			@all_considerations = Consideration.paginate(:page => params[:page], :per_page => 30)
 		end
   	end
 end

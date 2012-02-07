@@ -3,8 +3,7 @@
 		<% if Consideration.count != 0 %>
 			<div class="row">
 				<div id="randomizer">
-					<%= link_to "See a random consideration!", root_path,
-											:id => "change-consideration" %>
+					<%= link_to "See a random consideration!" %>						
 				</div>	
 			</div>
 			<div class="row">
@@ -12,22 +11,6 @@
 					<p><%= link_to wrap(@consideration.content), consideration_path(@consideration) %></p>
 				</div>
 			</div>
-	</div>
-			<% if session[:user_id] != nil %>
-				<div id="mini-hero" class="row vote-form">
-					<%= render 'users/vote_form' %><br />
-				</div>
-			<% else %>
-				<div id="mini-hero" class="row number-votes">
-	 				(This consideration has <%= pluralize(@consideration.votes_count, "vote") %> so far.)<br /> 
-	 				<%= link_to "Sign in with Twitter to vote and see results!", "/auth/twitter" %>
-				</div>
-			<% end %>
-			<div id="submitted">
-				<%= render 'considerations/destroy_consideration' %> 
-				<%= link_to "submitted by #{@consideration.user.name} 
-				on #{@consideration.user.created_at.strftime("%-m/%-d/%y")}", 
-				user_path(@consideration.user) %>
-			</div>
 		<% end %>
-</div>
+	</div>
+	<%= render 'shared/page_bottom' %>

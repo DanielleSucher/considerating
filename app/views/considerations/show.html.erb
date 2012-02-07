@@ -2,22 +2,4 @@
 	<div id="consideration-content-big" class="row">
 		<p><%= wrap(@consideration.content) %></p>
 	</div>
-	<% if session[:user_id] != nil %>
-		<div id="mini-hero" class="row vote-form">
-			<%= render 'users/vote_form' %><br />
-		</div>
-	<% else %>
-		<div id="mini-hero" class="row number-votes">
-			<% if Consideration.count != 0 %>
-	 			(This consideration has <%= pluralize(@consideration.votes_count, "vote") %> so far.)<br /> 
-	 			<%= link_to "Sign in with Twitter to vote and see results!", "/auth/twitter" %>
-			<% end %>
-		</div>
-	<% end %>
-	<div id="submitted">
-		<%= render 'considerations/destroy_consideration' %> 
-		<%= link_to "submitted by #{@consideration.user.name} 
-		on #{@consideration.user.created_at.strftime("%-m/%-d/%y")}", 
-		user_path(@consideration.user) %>
-	</div>
-</div>
+	<%= render 'shared/page_bottom' %>

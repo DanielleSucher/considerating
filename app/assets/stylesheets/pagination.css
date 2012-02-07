@@ -33,7 +33,8 @@
     text-decoration: none;
     color: #105cb6; }
     .digg_pagination a:hover, .digg_pagination a:focus {
-      color: #000033; }
+      color: #000033;
+      background-color: transparent; }
   .digg_pagination .page_info {
     background: #2e6ab1;
     color: white;

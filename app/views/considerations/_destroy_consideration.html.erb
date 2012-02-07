@@ -1,6 +1,7 @@
-<% if current_user && current_user.admin? %>
-    <%= link_to "Delete", @consideration, :method => :delete,
-    									  :remote => true,
-    									  :class => "delete_consideration",
-                                     	  :confirm => "You sure?" %> |
-<% end %>
+
+	<% if current_user && current_user.admin? %>
+    	<%= link_to "Delete", @consideration, :method => :delete,
+    									  		:remote => true,
+    									  		:class => "delete_consideration",
+                                     	  		:confirm => "You sure?" %> |
+	<% end %>

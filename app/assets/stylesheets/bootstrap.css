@@ -54,7 +54,7 @@ fieldset,
 form,
 label,
 legend,
-button,
+/* button, */
 table,
 caption,
 tbody,
@@ -604,8 +604,6 @@ label,
 input,
 select,
 textarea {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 13px;
   font-weight: normal;
   line-height: normal;
 }
@@ -924,7 +922,7 @@ textarea[readonly] {
   background: transparent;
   margin-top: 18px;
   margin-bottom: 18px;
-  padding: 17px 20px 18px 150px;
+/* sucher edit  padding: 17px 20px 18px 150px; */
 /*  border-top: 1px solid #ddd; */
   -webkit-border-radius: 0 0 3px 3px;
   -moz-border-radius: 0 0 3px 3px;
@@ -1821,7 +1819,8 @@ footer {
   color: #ffffff;
 }
 .btn .close, .alert-message .close {
-  font-family: Arial, sans-serif;
+  	font-family: "parisplus-clair", serif;
+  	color: #000;
   line-height: 18px;
 }
 .btn.danger,
@@ -1884,9 +1883,9 @@ footer {
   background-image: -o-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
   background-image: linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
-  padding: 5px 14px 6px;
+/*  padding: 5px 14px 6px; sucher edit */
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
-  color: #333;
+  color: #000;
   font-size: 13px;
   line-height: normal;
   border: 1px solid #ccc;
@@ -1905,7 +1904,7 @@ footer {
 }
 .btn:hover {
   background-position: 0 -15px;
-  color: #333;
+  color: #000;
   text-decoration: none;
 }
 .btn:focus {
@@ -1967,6 +1966,7 @@ footer {
 .btn.small {
   padding: 7px 9px 7px;
   font-size: 11px;
+  color: #000;
 }
 :root .alert-message, :root .btn {
   border-radius: 0 \0;

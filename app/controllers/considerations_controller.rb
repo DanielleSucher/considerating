@@ -19,7 +19,7 @@ class ConsiderationsController < ApplicationController
     	flash[:success] = "Consideration destroyed."
     	respond_to do |format|  
     		format.html { redirect_to root_path }  
-    		format.js  
+    		format.js 
   		end  
   	end
   	

@@ -3,11 +3,12 @@
 		<span class="user_nav">
 			<% if current_user %>
 				<%= link_to "#{current_user.name}", user_path(current_user) %> |
+				<%= link_to "Submit new consideration", '/new' %> |
 				<%= link_to "Sign out", signout_path %> |
 			<% else %>
 				<%= link_to "Sign in with Twitter", "/auth/twitter" %> |
 			<% end %>
-			<%= link_to "About", about_path %> 
+			<%= link_to "About", about_path %> | 
 		</span>
 	</div>
 	<div class="searchdiv">

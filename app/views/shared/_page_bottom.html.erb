@@ -1,16 +1,14 @@
 	<% if session[:user_id] != nil && @consideration %>
-		<div id="mini-hero" class="row">
+		<div id="mini-hero" class="row vote-form">
 			<%= render 'users/vote_form' %><br />
 		</div>
 </div>
-		<%= render 'shared/signed_in_page_bottom' %>
 	<% else %>
-		<div id="mini-hero number-notes" class="row">
-			<% if Consideration.count != 0 %>
-	 			(There have been <%= @consideration.votes_count %> votes on this consideration so far.)<br /> 
+		<% if Consideration.count != 0 %>
+			<div id="mini-hero" class="row number-votes">
+	 			(This consideration has <%= pluralize(@consideration.votes_count, "vote") %> so far.)<br /> 
 	 			<%= link_to "Sign in with Twitter to vote and see results!", "/auth/twitter" %>
-			<% end %>
-		</div>
+			</div>
+		<% end %>
 </div>
-		<%= render 'shared/not_signed_in_page_bottom' %>
 	<% end %>

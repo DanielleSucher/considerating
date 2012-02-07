@@ -6,6 +6,6 @@
     					:onBlur => "if (this.value == '') 
     						{this.value='Submit a new consideration here.'};" %>
     	<div id="new-consideration-button">
-    		<%= f.submit "Submit", :class => "btn" %>
+    		<%= f.submit "Submit", :class => "btn", :id => "new-cons-button" %>
     	</div>
 <% end %>

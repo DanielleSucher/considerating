@@ -11,7 +11,12 @@ class Consideration < ActiveRecord::Base
 	
 	validates :user_id, :presence => true
 	validates :content, :presence => true, :length => { :maximum => 500 }
-	validates_exclusion_of :content, :in => %w( http href ), :message => "No links please!"
+	validates_exclusion_of :content, :in => "href", 
+										:message => "No links please!"
+	validates_exclusion_of :content, :in => "http", 
+										:message => "No links please!"
+	validates_exclusion_of :content, :in => "Submit a new consideration here.", 
+										:message => "No blank considerations, please!"
 
 	searchable do
 		text :content

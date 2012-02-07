@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 	attr_accessor :accessible
 	attr_accessible :name, :votes_attributes, :considerations_attributes
-	has_many :considerations
+	has_many :considerations, :dependent => :destroy
 	has_many :votes,	:foreign_key => "voter_id"
 	has_many :voteds, :through => :votes, :source => :voted
 	

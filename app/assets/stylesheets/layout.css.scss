@@ -1,10 +1,17 @@
 body {
 	color: #000000;
+	background-color: transparent; 
+	background: url(cloudy2.jpg) no-repeat center center fixed;	
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 	a:link {color: #000000; text-decoration: none; }
 	a:active {color: #000000; text-decoration: none; }
 	a:visited {color: #000000; text-decoration: none; }
 	a:hover {color: #000000; text-decoration: none; }
 	font-family: "parisplus-clair", serif;
+	font-size: 15px;
 }
 
 .container {
@@ -42,15 +49,57 @@ body {
 	padding-right: 3px;
 }
 
-.searchdiv {
-	text-align: right;
-	margin-top: 15px;
-	float: right;
+.searchfield,
+.user_nav,
+.vote-form,
+.number-votes,
+#user_nav,
+#randomizer,
+#submitted,
+#footer {
+	font-size: 13px;
 }
 
-#search-page,
-#ban-page {
+.searchdiv {
+	text-align: right;
+	margin-top: 13px;
+	float: right;
+	background-color: transparent;
+}
+
+.searchspan {
+	background: white;
+  	padding-right: 5px;
+  	margin-left: 8px;
+  	padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.new-consideration-field,
+.searchspan {
+	-webkit-border-radius: 6px;
+  	-moz-border-radius: 6px;
+  	border-radius: 6px;
+  	border: 1px dotted;
+	font-family: "parisplus-clair", serif;
+}
+
+#search-page {
 	margin-top: 160px;
+}
+
+.searchbutton {
+	background: url(magnifying_glass_12x12.png) no-repeat center;
+}
+
+.searchfield,
+.searchbutton {
+	font-family: "parisplus-clair", serif;
+	border: none;
+	background-color: transparent;
+  	-webkit-box-shadow: none;
+  	-moz-box-shadow: none;
+  	box-shadow: none;
 }
 
 #profile-top,
@@ -63,7 +112,7 @@ body {
 	a:visited {color: #000000; text-decoration: none; }
 	a:hover {color: #000000; text-decoration: none; }
   	text-align: left;
-	padding-left: 30px;
+	padding-left: 40px;
 	padding-right: 30px;
 	width: 600px;
 }
@@ -85,6 +134,7 @@ body {
 	a:active { border-bottom:1px dotted; }
 	a:visited { border-bottom:1px dotted; }
 	a:hover { border-bottom:1px dotted; }
+	padding-bottom: 20px;
 }
 
 .bottombar {
@@ -95,12 +145,8 @@ body {
     text-align: center;
 }
 
-/* new consideration form */
 .new-consideration-field {
-	border:1px solid #dbdbdb;
 	padding:5px;
-	-webkit-border-radius:7px;
-	-moz-border-radius:7px;
 	align: left;
 	text-align: left;
 	width:95%;
@@ -111,22 +157,34 @@ body {
 	float: right;
 	padding-right: 40px;
 	padding-top: 10px;
+	font-family: "parisplus-clair", serif;
+	color: #000;
+}
+
+#new-cons-button,
+#vote-button {
+	font-family: "parisplus-clair", serif;
+	color: #000;
+}
+
+.vote-button {
+	float: right;
+	margin-right: 168px;
+	margin-top: 10px;
+	padding-top: 10px;
+	color: #000;
+	font-size: 13px;
+	text-align:center;
+	width: 100px;
 }
 
 /* centering the heroes in home and show */
 #mini-hero,
-#number-notes {
+#number-votes {
 	text-align: center;
-}
-
-/* main styling */
-body {
-    background-color: transparent; 
-	background: url(cloudy2.jpg) no-repeat center center fixed;	
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
+	width: 600px ;
+  	margin-left: auto ;
+  	margin-right: auto ;
 }
     
 #home-consideration-content {
@@ -134,6 +192,7 @@ body {
 }
 
 #consideration-content-big,
+#new-consideration-page,
 #each-consideration,
 #about,
 #ban-page,
@@ -144,11 +203,16 @@ body {
 	width: 600px ;
   	margin-left: auto ;
   	margin-right: auto ;
+  	padding-bottom: 50px;
   	
   	-webkit-border-radius: 6px;
   	-moz-border-radius: 6px;
   	border-radius: 6px;
 } 
+
+#each {
+  font-size: 18px;
+}
 
 #consideration-content-big,
 #no-search-results {
@@ -156,12 +220,24 @@ body {
   	padding-top: 30px;
 }
 
-#about {
-	padding-bottom: 20px;
+#new-consideration-page {
+  	margin-top: 80px;
+  	padding-top: 80px;
 }
 
 #ban-button {
-	text-align: center;
+	float: right;
+	margin-right: 150px;
+	margin-top: 10px;
+	padding-top: 10px;
+	color: #000;
+	font-size: 13px;
+	text-align:center;
+	width: 100px;
+}
+
+#ban-btn {
+	font-family: "parisplus-clair", serif;
 }
 
 #consideration-content-big {
@@ -171,4 +247,9 @@ body {
 #randomizer,
 #submitted {
 	float: right;
+	padding-right: 100px;
+}
+
+#randomizer {
+	padding-bottom: 10px;
 }

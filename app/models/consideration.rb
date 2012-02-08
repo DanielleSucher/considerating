@@ -18,15 +18,16 @@ class Consideration < ActiveRecord::Base
 	validates_exclusion_of :content, :in => "Submit a new consideration here.", 
 										:message => "No blank considerations, please!"
 
-	searchable do
-		text :content
-	end
-	
-	def search
-    	@search = Consideration.search(:include => [:content]) do
-      		keywords(params[:q])
-    	end
-  end
+# 	removing search for heroku deployment
+# 	searchable do
+# 		text :content
+# 	end
+# 	
+# 	def search
+#     	@search = Consideration.search(:include => [:content]) do
+#       		keywords(params[:q])
+#     	end
+#   	end
 
 	def self.random
        	if self.count != 0

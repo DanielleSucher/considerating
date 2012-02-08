@@ -29,8 +29,9 @@ gem 'jquery-rails', '2.0.0'
 gem 'omniauth'
 gem 'omniauth-twitter', :git => 'https://github.com/arunagw/omniauth-twitter.git'
 
-gem 'sunspot_rails'
-gem 'sunspot_solr'
+# removing search for heroku deployment
+# gem 'sunspot_rails'
+# gem 'sunspot_solr'
 
 gem 'will_paginate', '3.0.3'
 gem 'less-rails'

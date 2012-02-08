@@ -1,7 +1,7 @@
 require 'bundler/capistrano'
-set :user, 'danielles'
-set :domain, 'considerating.daniellesucher.com'
-set :applicationdir, "/"
+set :user, 'bigtramp'
+set :domain, 'bigtrampoline.com'
+set :applicationdir, "/www/considerating.com"
 
 set :application, "Considerating"
 set :repository,  "set your repository location here"

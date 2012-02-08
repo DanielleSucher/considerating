@@ -30,12 +30,13 @@ class ConsiderationsController < ApplicationController
   		end
   	end
   	
-  	def index
-  		@search = Consideration.search do
-    		fulltext params[:search]
-  		end
-  		@search_results = @search.results
-  	end
+#	removing search for heroku deployment  	
+#  	def index
+#  		@search = Consideration.search do
+#    		fulltext params[:search]
+#  		end
+#  		@search_results = @search.results
+#  	end
   	
   	def all
   		if Consideration.count != nil

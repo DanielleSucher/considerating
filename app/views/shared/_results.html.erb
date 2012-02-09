@@ -16,14 +16,17 @@
   			ctx.lineWidth = 2;
   			ctx.beginPath();
   			ctx.moveTo(0,115);
-  			ctx.bezierCurveTo(20, 115, 
-  							  20, 115-(points[0]/highest)*100, 
-  							  40, 115-(points[0]/highest)*100);
+  			ctx.bezierCurveTo(10, 115, 
+  							  10, 115-(points[0]/highest)*100, 
+  							  20, 115-(points[0]/highest)*100);
   			for (i=1; i<10; i++) {
-  				ctx.bezierCurveTo(20+(i*40), 115-(points[i-1]/highest)*100, 
-  							  	  20+(i*40), 115-(points[i]/highest)*100, 
-  							  	  40+(i*40), 115-(points[i]/highest)*100);
+  				ctx.bezierCurveTo(10+(i*40), 115-(points[i-1]/highest)*100, 
+  							  	  10+(i*40), 115-(points[i]/highest)*100, 
+  							  	  20+(i*40), 115-(points[i]/highest)*100);
 			}
+  			ctx.bezierCurveTo(390, 115-(points[9]/highest)*100, 
+  							  390, 115, 
+  							  400, 115);
 			ctx.shadowColor="black";
 			ctx.shadowBlur=1;
   			ctx.stroke();

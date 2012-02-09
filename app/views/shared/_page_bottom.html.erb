@@ -1,18 +1,12 @@
 	<% if Consideration.count != 0 %>
-			<% if session[:user_id] != nil %>
-				<div id="mini-hero" class="row vote-form">
-					<%= render 'users/vote_form' %><br />
-				</div>
-			<% else %>
-				<div id="mini-hero" class="row number-votes">
-	 				This consideration has <%= pluralize(@consideration.votes_count, "vote") %> so far - <%= link_to "sign in with Google", "/auth/google_oauth2" %> to vote and see results!
-				</div>
-			<% end %>
+			<div id="mini-hero" class="row vote-form">
+				<%= render 'users/vote_form' %><br />
+			</div>
 			<div id="submitted">
 				<%= render 'considerations/destroy_consideration' %> 
 				<%= link_to "submitted by #{@consideration.user.name} 
 				on #{@consideration.user.created_at.strftime("%-m/%-d/%y")}", 
-				user_path(@consideration.user) %>
+				user_path(@consideration.user) %><% if !current_user %> - <%= link_to "sign in with Google", "/auth/google_oauth2" %> to vote!<% end %>
 			</div>
 	<% end %>
 </div>

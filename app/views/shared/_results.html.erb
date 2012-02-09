@@ -1,5 +1,5 @@
 <div id="vote-results">
-	<canvas id="graph<%= @consideration.id %>" width="400" height="120">fallback</canvas><br />
+	<canvas id="graph<%= @consideration.id %>" width="440" height="120">fallback</canvas><br />
 	<div id="graph-creepy">creepy</div> 
 	<div id="graph-considerate">considerate</div>
 	<div id="total-vote-count"><%= pluralize(@consideration.votes_count, "vote") %> so far</div>
@@ -24,6 +24,9 @@
   							  	  20+(i*40), 115-(points[i]/highest)*100, 
   							  	  40+(i*40), 115-(points[i]/highest)*100);
 			}
+  			ctx.bezierCurveTo(420, 115-(points[9]/highest)*100, 
+  							  420, 115, 
+  							  440, 115);
 			ctx.shadowColor="black";
 			ctx.shadowBlur=1;
   			ctx.stroke();

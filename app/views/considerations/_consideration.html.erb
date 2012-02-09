@@ -8,7 +8,7 @@
 			<%= render 'users/vote_form' %><br />
 		<% else %>
 			<div id="number-votes" class="row">
-	 			This consideration has <%= pluralize(consideration.votes_count, "vote") %> so far - <%= link_to "sign in with Twitter", "/auth/twitter" %> to vote and see results!
+	 			This consideration has <%= pluralize(consideration.votes_count, "vote") %> so far - <%= link_to "sign in with Google", "/auth/google_oauth2" %> to vote and see results!
 			</div>
 		<% end %>
 	</div>

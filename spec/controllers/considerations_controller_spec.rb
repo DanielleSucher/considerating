@@ -27,8 +27,8 @@ describe ConsiderationsController do
 		describe "as a regular user" do
 		
 		    before do 
-   				request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:twitter]
-   				visit '/auth/twitter'
+   				request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:google_oauth2]
+   				visit '/auth/google_oauth2'
    				auth = request.env["omniauth.auth"]
 				@user2 = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
 				session[:user_id] = @user2.id
@@ -44,8 +44,8 @@ describe ConsiderationsController do
       	describe "as a banned user" do
 		
 		    before do 
-   				request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:twitter]
-   				visit '/auth/twitter'
+   				request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:google_oauth2]
+   				visit '/auth/google_oauth2'
    				auth = request.env["omniauth.auth"]
 				@banned = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
 				session[:user_id] = @banned.id
@@ -83,8 +83,8 @@ describe ConsiderationsController do
     	describe "as a non-admin user" do
     	
     		before do 
-   				request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:twitter]
-   				visit '/auth/twitter'
+   				request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:google_oauth2]
+   				visit '/auth/google_oauth2'
    				auth = request.env["omniauth.auth"]
 				user2 = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
 				session[:user_id] = user2.id
@@ -105,8 +105,8 @@ describe ConsiderationsController do
     	describe "as an admin user" do
       
     		before do 
-   				request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:twitter]
-   				visit '/auth/twitter'
+   				request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:google_oauth2]
+   				visit '/auth/google_oauth2'
    				auth = request.env["omniauth.auth"]
 				admin = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
 				session[:user_id] = admin.id
@@ -126,72 +126,37 @@ describe ConsiderationsController do
     	end
   	end
   	
-  	describe "all considerations page" do
+  	describe "index page" do
   	
   	    before(:each) do 
     		@user = Factory(:user)		
     	end
     
-    	describe "as a non-signed-in user" do
-      		it "should deny access" do
-        		get :all
-        		response.should redirect_to(root_path)
-      		end
-    	end
-
-    	describe "as a non-admin user" do
-    	
-    		before do 
-   				request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:twitter]
-   				visit '/auth/twitter'
-   				auth = request.env["omniauth.auth"]
-				user2 = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
-				session[:user_id] = user2.id
+		it "should have an element for each consideration" do
+			c1 = Factory(:consideration, :content => Factory.next(:content))
+      		c2 = Factory(:consideration, :content => Factory.next(:content))
+      		c3 = Factory(:consideration, :content => Factory.next(:content))
+      		@considerations = [c1, c2, c3]
+        	30.times do
+         		@considerations << Factory(:consideration, :content => Factory.next(:content))
 			end
-    	
-      		it "should protect the page" do
-        		get :all
-        		response.should redirect_to(root_path)
-      		end
-    	end
-    
-    	describe "as an admin user" do
+        	visit '/index'
+        	@considerations[32..33].each do |consideration|
+				page.should have_content(consideration.content)
+       		end
+      	end
       
-    		before do 
-   				request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:twitter]
-   				visit '/auth/twitter'
-   				auth = request.env["omniauth.auth"]
-				admin = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
-				session[:user_id] = admin.id
-  				admin.toggle!(:admin) 
+      	it "should paginate considerations" do
+      		c1 = Factory(:consideration, :content => Factory.next(:content))
+      		c2 = Factory(:consideration, :content => Factory.next(:content))
+      		c3 = Factory(:consideration, :content => Factory.next(:content))
+      		@considerations = [c1, c2, c3]
+        	40.times do
+          		@considerations << Factory(:consideration, :content => Factory.next(:content))
 			end
-
-			it "should have an element for each consideration" do
-				c1 = Factory(:consideration, :content => Factory.next(:content))
-      			c2 = Factory(:consideration, :content => Factory.next(:content))
-      			c3 = Factory(:consideration, :content => Factory.next(:content))
-      			@considerations = [c1, c2, c3]
-        		30.times do
-          			@considerations << Factory(:consideration, :content => Factory.next(:content))
-				end
-        		visit '/all'
-        		@considerations[32..33].each do |consideration|
-					page.should have_content(consideration.content)
-       			end
-      		end
-      
-      		it "should paginate considerations" do
-      			c1 = Factory(:consideration, :content => Factory.next(:content))
-      			c2 = Factory(:consideration, :content => Factory.next(:content))
-      			c3 = Factory(:consideration, :content => Factory.next(:content))
-      			@considerations = [c1, c2, c3]
-        		30.times do
-          			@considerations << Factory(:consideration, :content => Factory.next(:content))
-				end
-        		get :all
-        		page.should have_selector("a", :content => "2")
-        		page.should have_selector("a", :content => "Next")
-      		end
-    	end
+        	visit '/index'
+        	page.should have_selector("a", :content => "2")
+        	page.should have_selector("a", :content => "Next")
+      	end
   	end
 end

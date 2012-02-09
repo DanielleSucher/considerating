@@ -1,10 +1,8 @@
 <div id="search-page"></div>
-	<% if @search_results.empty? %>
-		<div id="no-search-results">
-			Sorry, no considerations matching your search were found.
-		</div>
-	<% else %>
-		<div id="search_results">
-  			<%= render @search_results %>
-  		</div>
+<div class="digg_pagination row"><%= will_paginate @all_considerations %></div>
+<div id="all-considerations">
+	<% @all_considerations.each do |consideration| %>
+ 		<%= render consideration %>
 	<% end %>
+</div>
+<div class="digg_pagination row"><%= will_paginate @all_considerations %></div>

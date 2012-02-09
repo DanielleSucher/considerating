@@ -82,17 +82,17 @@ describe Consideration do
 		end
 	end
 	
-	describe "searching", :search => true do
-		before { @consideration = Factory(:consideration) }
-	
-		it "should have a search method" do
-			@consideration.should respond_to(:search)
-		end
-		
-		it 'should return consideration search results' do
-      		searchable_post = Factory(:consideration, :content => "Of Mice and Men")
-      		Sunspot.commit
-      		Consideration.search { keywords "mice"}.results.should == [searchable_post]
-    	end
-	end
+# 	describe "searching", :search => true do
+# 		before { @consideration = Factory(:consideration) }
+# 	
+# 		it "should have a search method" do
+# 			@consideration.should respond_to(:search)
+# 		end
+# 		
+# 		it 'should return consideration search results' do
+#       		searchable_post = Factory(:consideration, :content => "Of Mice and Men")
+#       		Sunspot.commit
+#       		Consideration.search { keywords "mice"}.results.should == [searchable_post]
+#     	end
+# 	end
 end

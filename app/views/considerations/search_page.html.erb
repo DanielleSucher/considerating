@@ -1,0 +1,10 @@
+<div id="search-page"></div>
+	<% if @search_results.empty? %>
+		<div id="no-search-results">
+			Sorry, no considerations matching your search were found.
+		</div>
+	<% else %>
+		<div id="search_results">
+  			<%= render @search_results %>
+  		</div>
+	<% end %>

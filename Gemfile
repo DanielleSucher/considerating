@@ -27,15 +27,14 @@ end
 gem 'jquery-rails', '2.0.0'
 
 gem 'omniauth'
-gem 'omniauth-twitter', :git => 'https://github.com/arunagw/omniauth-twitter.git'
+gem 'omniauth-google'
+gem 'omniauth-google-oauth2'
 
 # removing search for heroku deployment
 # gem 'sunspot_rails'
 # gem 'sunspot_solr'
 
 gem 'will_paginate', '3.0.3'
-gem 'less-rails'
-gem 'less-rails-bootstrap'
 
 # Gems used for testing
 group :test do

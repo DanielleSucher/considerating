@@ -14,8 +14,8 @@ describe VotesController do
   	describe "create vote" do
   
       	before(:each) do
-   			request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:twitter]
-   			visit '/auth/twitter'
+   			request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:google_oauth2]
+   			visit '/auth/google_oauth2'
    			auth = request.env["omniauth.auth"]
 			@user = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
 			session[:user_id] = @user.id

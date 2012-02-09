@@ -1,7 +1,7 @@
 class ConsiderationsController < ApplicationController
-	before_filter :authenticate, :only => [:create, :destroy, :all]
-	before_filter :admin_user,   :only => [:destroy, :all]
-	before_filter :no_banned_users,   :only => [:create, :destroy, :all]
+	before_filter :authenticate, :only => [:create, :destroy]
+	before_filter :admin_user,   :only => :destroy
+	before_filter :no_banned_users,   :only => [:create, :destroy]
 	  	
   	def create
   		@consideration = current_user.considerations.build(params[:consideration])
@@ -35,7 +35,7 @@ class ConsiderationsController < ApplicationController
 #  		@search_results = @search.results
 #  	end
   	
-  	def all
+  	def index
   		if Consideration.count != nil
   			@all_considerations = Consideration.paginate(:page => params[:page], :per_page => 30)
 		end

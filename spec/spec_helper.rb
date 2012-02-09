@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'spork'
-require 'sunspot_test/rspec'
+# require 'sunspot_test/rspec'
 
 Spork.prefork do
   # Loading more in this block will cause your tests to run faster. However,
@@ -47,10 +47,10 @@ Spork.prefork do
 # 	  :name => 'zapnap'
 # 	})
 
-OmniAuth.config.mock_auth[:twitter] = {
+OmniAuth.config.mock_auth[:google_oauth2] = {
         'info' => { 'name' => 'Omni Example' },
         'uid' => '123545',
-        'provider' => 'twitter'
+        'provider' => 'google_oauth2'
         }
 
 end

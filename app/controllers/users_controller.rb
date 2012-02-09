@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_filter :authenticate, :only => [:create, :show, :edit]
+	before_filter :authenticate, :only => [:create, :edit]
   	before_filter :admin_user,   :only => [:edit]
   
   	def show

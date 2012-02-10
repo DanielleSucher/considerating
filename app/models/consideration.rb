@@ -29,6 +29,14 @@ class Consideration < ActiveRecord::Base
 #     	end
 #   	end
 
+	include Tanker
+	tankit 'idx' do
+    	indexes :content
+  	end
+  	after_save :update_tank_indexes
+  	after_destroy :delete_tank_indexes
+
+
 	def self.random
        	if self.count != 0
 #         	find(:first, :offset => rand(c))

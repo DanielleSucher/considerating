@@ -27,6 +27,10 @@ class ConsiderationsController < ApplicationController
   		end
   	end
   	
+  	def search
+  		@search_results = search_tank(params[:query])
+  	end
+  	
 #	removing search for heroku deployment  	
 #  	def index
 #  		@search = Consideration.search do

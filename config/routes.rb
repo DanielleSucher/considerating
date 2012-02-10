@@ -29,6 +29,7 @@ Considerating::Application.routes.draw do
   match '/new', :to => 'pages#new'
   
   match '/index', :to => 'considerations#index'
+  match '/search' => 'considerations#search'
   
   root :to => 'pages#home'
   

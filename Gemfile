@@ -27,10 +27,10 @@ end
 gem 'jquery-rails', '2.0.0'
 
 gem 'omniauth'
-gem 'omniauth-google'
 gem 'omniauth-google-oauth2'
 
-# removing search for heroku deployment
+gem 'tanker'
+# removing sunspot/solr for heroku deployment
 # gem 'sunspot_rails'
 # gem 'sunspot_solr'
 

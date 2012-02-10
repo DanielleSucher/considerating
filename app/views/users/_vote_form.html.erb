@@ -1,7 +1,5 @@
-<div class="voting-form">
 	<% if session[:user_id] == nil || current_user.voteds?(@consideration) != nil %>
 		<%= render 'shared/results' %>
 	<% else %>
 		<%= render 'users/vote' %>
 	<% end %>
-</div>

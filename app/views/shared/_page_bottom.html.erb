@@ -8,5 +8,9 @@
 				on #{@consideration.user.created_at.strftime("%-m/%-d/%y")}", 
 				user_path(@consideration.user) %><% if !current_user %> - <%= link_to "sign in with Google", "/auth/google_oauth2" %> to vote!<% end %>
 			</div>
+			<div class="tweet">
+				<a href="https://twitter.com/share" class="twitter-share-button" data-text="Considerate or creepy? Vote and help me decide! http://considerating.com/considerations/<%= @consideration.id %>" data-hashtags="considerating">Tweet</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			</div>
 	<% end %>
 </div>

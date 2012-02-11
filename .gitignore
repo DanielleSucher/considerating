@@ -21,4 +21,4 @@ doc/
 .project
 .DS_Store
 /solr/data
-# /config/initializers/omniauth.rb
+/config/initializers/*.*

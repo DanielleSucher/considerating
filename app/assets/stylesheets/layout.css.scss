@@ -214,7 +214,7 @@ body {
 	width: 600px ;
   	margin-left: auto ;
   	margin-right: auto ;
-  	padding-bottom: 50px;
+  	padding-bottom: 100px;
   	
   	-webkit-border-radius: 6px;
   	-moz-border-radius: 6px;
@@ -223,6 +223,7 @@ body {
 
 #each {
   font-size: 18px;
+  text-align: center;
 }
 
 #consideration-content-big,
@@ -304,4 +305,8 @@ body {
 	clear: both;
 	float: right;
 	font-size: 13px;
+}
+
+#consideration-text {
+	text-align: center;
 }

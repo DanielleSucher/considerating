@@ -1,8 +1,10 @@
 <div id="vote-results">
-	<canvas id="graph<%= @consideration.id %>" width="440" height="120">fallback</canvas><br />
-	<div id="graph-creepy">creepy</div> 
-	<div id="graph-considerate">considerate</div>
-	<div id="total-vote-count"><%= pluralize(@consideration.votes_count, "vote") %> so far</div>
+	<% if @consideration.votes_count != 0 %>
+		<canvas id="graph<%= @consideration.id %>" width="440" height="120">fallback</canvas><br />
+		<div id="graph-creepy">creepy</div> 
+		<div id="graph-considerate">considerate</div>
+		<div id="total-vote-count"><%= pluralize(@consideration.votes_count, "vote") %> so far</div>
+	<% end %>
 </div>
 <script type="text/javascript">
 	function draw(points) {

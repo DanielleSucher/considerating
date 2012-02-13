@@ -1,5 +1,6 @@
 class Consideration < ActiveRecord::Base
-	attr_accessible :content, :votes_total, :votes_count, :votes_attributes
+	attr_accessible :content, :votes_total, :votes_count, :votes_attributes, :v1, :v2,
+					:v3, :v4, :v5, :v6, :v7, :v8, :v9, :v10
 	
 	belongs_to :user
 	has_many :reverse_votes,	:foreign_key => "voted_id",
@@ -45,11 +46,11 @@ class Consideration < ActiveRecord::Base
        	end
 	end
 	
-	def add_vote(vote)
+	def add_vote(rating)
 		Consideration.increment_counter(:votes_count, id)
-		rounded = vote.rating.round
+		rounded = rating.round
 		Consideration.increment_counter("v#{rounded}".to_sym, id)
-		self.votes_total += vote.rating
+		self.votes_total += rating
 		self.save
 	end
 	

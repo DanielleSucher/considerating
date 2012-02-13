@@ -29,4 +29,8 @@ module SessionsHelper
     def no_banned_users
      	redirect_to(root_path) if current_user.banned?
     end
+    
+    def limit_anonymous_voting
+    	session[:voted_upon] ||= []
+    end
 end

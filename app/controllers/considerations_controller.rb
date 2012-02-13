@@ -2,6 +2,7 @@ class ConsiderationsController < ApplicationController
 	before_filter :authenticate, :only => [:create, :destroy]
 	before_filter :admin_user,   :only => :destroy
 	before_filter :no_banned_users,   :only => [:create, :destroy]
+	before_filter :limit_anonymous_voting 
 	  	
   	def create
   		@consideration = current_user.considerations.build(params[:consideration])
@@ -19,6 +20,17 @@ class ConsiderationsController < ApplicationController
     		format.js 
   		end  
   	end
+  	
+  	  def update
+		@consideration = Consideration.find(params[:id])
+		@consideration.add_vote(params[:rating].to_d/10)
+		session[:voted_upon] << @consideration.id
+    	@consideration.reload
+    	respond_to do |format|
+    		format.html { redirect_to consideration_path(@consideration) }
+    		format.js
+    	end
+	end
   	
   	def show
   		@consideration = Consideration.find(params[:id])

@@ -1,5 +1,9 @@
-	<% if session[:user_id] == nil || current_user.voteds?(@consideration) != nil %>
-		<%= render 'shared/results' %>
-	<% else %>
-		<%= render 'users/vote' %>
+<div id="vote-<%= @consideration.id %>">
+	<%= render 'shared/results' %>
+	<% if session[:user_id] == nil && !(session[:voted_upon].include? @consideration.id) %>
+		<%= render 'shared/vote_logged_out' %>
 	<% end %>
+	<% if session[:user_id] != nil && current_user.voteds?(@consideration) == nil %>
+		<%= render 'users/vote_logged_in' %>
+	<% end %>
+</div>

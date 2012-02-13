@@ -23,7 +23,11 @@ class ConsiderationsController < ApplicationController
   	
   	  def update
 		@consideration = Consideration.find(params[:id])
-		@consideration.add_vote(params[:rating].to_d/10)
+		rating = params[:rating].to_d/10
+		if rating == 0 
+			rating = 1
+		end
+		@consideration.add_vote(rating)
 		session[:voted_upon] << @consideration.id
     	@consideration.reload
     	respond_to do |format|

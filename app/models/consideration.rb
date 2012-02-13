@@ -48,7 +48,7 @@ class Consideration < ActiveRecord::Base
 	
 	def add_vote(rating)
 		Consideration.increment_counter(:votes_count, id)
-		rounded = rating.to_d.round
+		rounded = rating.round
 		Consideration.increment_counter("v#{rounded}".to_sym, id)
 		self.votes_total += rating
 		self.save

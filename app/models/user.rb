@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
 		votes.create!(:voted_id => voted.id, :rating => rating)
 		current_vote = votes.find_by_voted_id(voted)
 		considered = Consideration.find_by_id(voted.id)
-		considered.add_vote(rating)
+		considered.add_vote(current_vote.rating)
 	end
 	
 	private

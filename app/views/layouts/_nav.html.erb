@@ -4,7 +4,7 @@
 			<% if current_user %>
 				<%= link_to "#{current_user.name}", user_path(current_user) %> |
 				<%= link_to "Submit new consideration", '/new' %> |
-				<%= link_to "Sign out", signout_path %> |
+				<%= link_to "Sign out of Google", signout_path %> |
 			<% else %>
 				<%= link_to "Sign in with Google to submit new considerations", "/auth/google_oauth2" %> |
 			<% end %>

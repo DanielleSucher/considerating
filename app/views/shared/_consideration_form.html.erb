@@ -2,7 +2,8 @@
 		<%= f.text_area :content, :maxlength => 500, 
     					:class => "new-consideration-field", 
     					:value => "Submit a new consideration here.", 
-    					:onFocus => "this.value=''", 
+    					:onFocus => "if (this.value == 'Submit a new consideration here.') 
+    						{this.value=''};", 
     					:onBlur => "if (this.value == '') 
     						{this.value='Submit a new consideration here.'};" %>
     	<div id="new-consideration-button">

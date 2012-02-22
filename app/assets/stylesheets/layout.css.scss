@@ -174,18 +174,14 @@ body {
 #new-cons-button,
 #vote-button {
 	font-family: "parisplus-clair", serif;
-	color: #000;
 }
 
 .vote-button {
-	float: right;
-	margin-right: 168px;
 	margin-top: 10px;
 	padding-top: 10px;
 	color: #000;
 	font-size: 13px;
 	text-align:center;
-	width: 100px;
 }
 
 /* centering the heroes in home and show */
@@ -264,9 +260,24 @@ body {
 	padding-bottom: 10px;
 }
 
+.home-bottom {
+	clear: both;
+	margin-top: 30px;
+	font-size: 24px;
+	text-align:center;
+	a:link { border-bottom:1px dotted; }
+	a:active { border-bottom:1px dotted; }
+	a:visited { border-bottom:1px dotted; }
+	a:hover { border-bottom:1px dotted; }
+}
+
 #submitted {
 	clear: both;
 	text-align: center;
+	a:link { border-bottom:1px dotted; }
+	a:active { border-bottom:1px dotted; }
+	a:visited { border-bottom:1px dotted; }
+	a:hover { border-bottom:1px dotted; }
 }
 
 

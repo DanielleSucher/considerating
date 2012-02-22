@@ -1,9 +1,9 @@
 <%= form_for @new_consideration, :class => "span-two-thirds" do |f| %>
-		<%= f.text_area :content, :maxlength => 500, 
+		<%= f.text_area :content, :maxlength => 1000, 
     					:class => "new-consideration-field", 
     					:value => "Submit a new consideration here.", 
     					:onFocus => "if (this.value == 'Submit a new consideration here.') 
-    						{this.value=''};", 
+							{this.value=''};",  
     					:onBlur => "if (this.value == '') 
     						{this.value='Submit a new consideration here.'};" %>
     	<div id="new-consideration-button">

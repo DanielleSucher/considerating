@@ -2,11 +2,6 @@
 	<div id="consideration-content-big">
 		<% if Consideration.count != 0 %>
 			<div class="row">
-				<div id="randomizer">
-					<%= link_to "See a random consideration!" %>						
-				</div>	
-			</div>
-			<div class="row">
 				<div id="consideration-text">
 					<p><%= link_to wrap(@consideration.content), consideration_path(@consideration) %></p>
 				</div>

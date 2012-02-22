@@ -7,13 +7,12 @@
 		<%= render 'users/vote_form' %><br />
 		<div id="submitted">
 			<%= render 'considerations/destroy_consideration' %> 
-			<%= link_to "submitted by #{consideration.user.name} 
-			on #{consideration.user.created_at.strftime("%-m/%-d/%y")}", 
-			user_path(consideration.user) %>
+			submitted by <%= link_to "#{@consideration.user.name}", 
+			user_path(@consideration.user) %> on <%= @consideration.created_at.strftime("%-m/%-d/%y") %>
 		</div>
-		<div class="each-tweet">
-			<a href="https://twitter.com/share" class="twitter-share-button" data-text="Considerate or creepy? Vote and help me decide! http://considerating.com/considerations/<%= @consideration.id %>" data-hashtags="considerating">Tweet</a>
-			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-		</div>
+			<div class="each-tweet">
+				<a href="https://twitter.com/intent/tweet?button_hashtag=considerating" class="twitter-hashtag-button" data-text="Considerate or creepy? Vote and help me decide! http://considerating.com/considerations/<%= @consideration.id %>">Tweet</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			</div>
 	</div>
 </div>

@@ -183,7 +183,12 @@ body {
 	text-align:center;
 }
 
+#vote-button {
+	text-align: center;
+}
+
 .btn2 {
+  text-align: center;
   cursor: pointer;
   display: inline-block;
   background-color: #e6e6e6;
@@ -354,35 +359,6 @@ body {
 .fd-slider,
 .vote-form {
 	text-align: center;
-}
-
-/* voting form the labels */
-.vote-creepy {
-	clear: both;
-	float: right;
-	margin-right: 150px;
-	margin-top: 10px;
-	font-size: 13px;
-	text-align:center;
-	width: 100px;
-	-webkit-box-shadow: none transparent;
-	-moz-box-shadow: none transparent;
-	-moz-border-radius: none transparent;
-	-webkit-border-radius: none transparent; 
-}
-
-.vote-considerate {
-	clear: both;
-	float: right;
-	margin-right: 100px;
-	margin-top: 10px;
-	font-size:13px;
-	text-align:center;
-	width: 100px;
-	-webkit-box-shadow: none transparent;
-	-moz-box-shadow: none transparent;
-	-moz-border-radius: none transparent;
-	-webkit-border-radius: none transparent; 
 }
 
 #total-vote-count {

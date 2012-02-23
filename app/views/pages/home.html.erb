@@ -3,7 +3,7 @@
 		<% if Consideration.count != 0 %>
 			<div class="row">
 				<div id="consideration-text">
-					<p><%= link_to wrap(@consideration.content), consideration_path(@consideration) %></p>
+					<p><%= wrap(@consideration.content) %></p>
 				</div>
 			</div>
 		<% end %>

@@ -1,14 +1,15 @@
 <div id="each-consideration" class="hero-unit delete-able">
     <div id="consideration-text">
-    	<%= link_to wrap(consideration.content), consideration_path(consideration) %><br />
+    	<%= wrap(consideration.content) %><br />
 	</div>
 	<% @consideration = consideration %>
 	<div id="voting" class="vote-form">
 		<%= render 'users/vote_form' %><br />
 		<div id="submitted">
-			<%= render 'considerations/destroy_consideration' %> 
+			<%= render 'considerations/destroy_consideration' %>  
 			submitted by <%= link_to "#{@consideration.user.name}", 
 			user_path(@consideration.user) %> on <%= @consideration.created_at.strftime("%-m/%-d/%y") %>
+			 • <%= link_to "permalink", consideration_path(consideration) %>
 		</div>
 			<div class="each-tweet">
 				<a href="https://twitter.com/intent/tweet?button_hashtag=considerating" class="twitter-hashtag-button" data-text="Considerate or creepy? Vote and help me decide! http://considerating.com/considerations/<%= @consideration.id %>">Tweet</a>

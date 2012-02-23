@@ -7,29 +7,7 @@
   		<%= csrf_meta_tags %>
   		<script type="text/javascript" src="http://use.typekit.com/vff5mnj.js"></script>
 		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-		<!-- script src="http://cdn.jquerytools.org/1.2.6/form/jquery.tools.min.js" -->
-		<script>   
-			// Set up the yepnope (Modernizr.load) directives... 
-			Modernizr.load([
-				{
-					// Test if Input Range is supported using Modernizr
-					test: Modernizr.inputtypes.range,
-					// If ranges are not supported, load the slider script and CSS file
-					nope: [     
-					  // The slider CSS file
-					  'css!http://www.frequency-decoder.com/demo/fd-slider/css/fd-slider.css'       
-					  // Javascript file for slider
-					 ,'http://www.frequency-decoder.com/demo/fd-slider/js/fd-slider.js'     
-					],
-					callback: function(id, testResult) {
-						// If the slider file has loaded then fire the onDomReady event        
-						if("fdSlider" in window && typeof (fdSlider.onDomReady) != "undefined") {
-								try { fdSlider.onDomReady(); } catch(err) {};
-						};
-					}
-				}
-			]);
-		</script>
+		<script src="http://cdn.jquerytools.org/1.2.6/form/jquery.tools.min.js"></script>
 		<script type="text/javascript">
 			 var _gaq = _gaq || [];
 			 _gaq.push(['_setAccount', 'UA-29376564-1']);

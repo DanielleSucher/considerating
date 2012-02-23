@@ -1,8 +1,6 @@
 <div id="new-vote-<%= @consideration.id %>">
 	<%= form_for @consideration, :remote => true do |f| %>
 		<%= range_field_tag :rating, :in => 10...101 %>
-		<div class="vote-creepy">creepy</div> 
-		<div class="vote-considerate">considerate</div> 
 		<div class="actions vote-button"><%= f.submit "Vote!", :class => "btn2 span2", :id => "vote-button" %></div>
 	<% end %>
 </div>

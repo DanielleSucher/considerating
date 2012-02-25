@@ -1,0 +1,11 @@
+<div id="new-vote-<%= @consideration.id %>">
+	<%= form_for @consideration, :remote => true do |f| %>
+		<%= select_tag :rating, "<option value='10'>considerate</option>
+			<option value='20'>2</option><option value='30'>3</option>
+			<option value='40'>4</option><option value='50'>5</option>
+			<option value='60'>6</option><option value='70'>7</option>
+			<option value='80'>4</option><option value='90'>9</option>
+			<option value='100'>creepy</option>".html_safe %>
+		<div class="actions vote-button"><%= f.submit "Vote!", :class => "btn2 span2", :id => "vote-button" %></div>
+	<% end %>
+</div>
